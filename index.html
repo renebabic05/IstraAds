@@ -426,7 +426,7 @@
       <div class="grid-3">
         <div class="card">
           <h3>Meta Ads test kampanja</h3>
-          <img src="images/case1.png" style="width:100%;border-radius:12px;margin-bottom:14px;">
+          <img src="images/case1.png" onclick="openLightbox(this.src)" style="cursor:pointer;width:100%;max-width:720px;display:block;margin:0 auto 18px;border-radius:12px;">
           <p><strong>Budžet:</strong> 5€<br>
           <strong>Reach:</strong> 1,439 ljudi<br>
           <strong>Pregledi:</strong> 2,050<br>
@@ -435,7 +435,7 @@
         </div>
         <div class="card">
           <h3>Meta Ads kampanja</h3>
-          <img src="images/case2.png" style="width:100%;border-radius:12px;margin-bottom:14px;">
+          <img src="images/case2.png" onclick="openLightbox(this.src)" style="cursor:pointer;width:100%;max-width:720px;display:block;margin:0 auto 18px;border-radius:12px;">
           <p><strong>Budžet:</strong> 20€<br>
           <strong>Reach:</strong> 9,871 ljudi<br>
           <strong>Pregledi:</strong> 15,619<br>
@@ -567,5 +567,23 @@
   <a class="btn btn-secondary" href="https://www.facebook.com/istraads" target="_blank">Facebook</a>
   <a class="btn btn-secondary" href="mailto:renebabo299@gmail.com?subject=Upit%20za%20marketing%20usluge">Pošalji Email</a>
 </div>
+  <!-- Lightbox -->
+  <div id="lightbox" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.9);align-items:center;justify-content:center;z-index:3000;">
+    <img id="lightbox-img" style="max-width:90%;max-height:90%;border-radius:10px;">
+  </div>
+
+  <script>
+  function openLightbox(src){
+    const box=document.getElementById('lightbox');
+    const img=document.getElementById('lightbox-img');
+    img.src=src;
+    box.style.display='flex';
+  }
+
+  document.getElementById('lightbox').onclick=function(){
+    this.style.display='none';
+  }
+  </script>
+
 </body>
 </html>
