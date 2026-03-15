@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IstraAds | Web & Marketing za lokalne biznise</title>
+  <meta name="description" content="IstraAds - web stranice, oglasi, društvene mreže i marketing za lokalne biznise u Istri." />
+  <style>
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #0d47a1;
+      color: #ffffff;
+    }
+    .container {
+      width: min(1120px, calc(100% - 32px));
+      margin: 0 auto;
+    }
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(13, 71, 161, 0.96);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(255,255,255,0.14);
+    }
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 0;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .logo {
+      font-size: 32px;
+      font-weight: 800;
+      color: #ffffff;
+      letter-spacing: 0.5px;
+    }
+    nav {
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+    nav a {
+      color: #ffffff;
+      text-decoration: none;
+      font-weight: 600;
+      opacity: 0.95;
+    }
+    nav a:hover { opacity: 1; }
+    .hero {
+      padding: 96px 0 72px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.02));
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 28px;
+      align-items: center;
+    }
+    .eyebrow {
+      display: inline-block;
+      background: rgba(255,255,255,0.14);
+      color: #ffffff;
+      border: 1px solid rgba(255,255,255,0.18);
+      padding: 10px 14px;
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 18px;
+    }
+    h1 {
+      margin: 0 0 16px;
+      font-size: 56px;
+      line-height: 1.05;
+    }
+    .hero p {
+      margin: 0;
+      font-size: 20px;
+      line-height: 1.65;
+      color: rgba(255,255,255,0.92);
+      max-width: 680px;
+    }
+    .hero-buttons {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-top: 28px;
+    }
+    .btn {
+      display: inline-block;
+      text-decoration: none;
+      padding: 14px 24px;
+      border-radius: 999px;
+      font-weight: 700;
+      transition: 0.25s ease;
+      border: 2px solid transparent;
+    }
+    .btn-primary {
+      background: #ffffff;
+      color: #0d47a1;
+    }
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 24px rgba(0,0,0,0.18);
+    }
+    .btn-secondary {
+      background: transparent;
+      color: #ffffff;
+      border-color: rgba(255,255,255,0.35);
+    }
+    .btn-secondary:hover {
+      background: rgba(255,255,255,0.08);
+    }
+    .hero-card {
+      background: #ffffff;
+      color: #0f172a;
+      border-radius: 24px;
+      padding: 28px;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.22);
+    }
+    .hero-card h3 {
+      margin: 0 0 18px;
+      color: #0d47a1;
+      font-size: 24px;
+    }
+    .mini-list {
+      display: grid;
+      gap: 14px;
+    }
+    .mini-item {
+      padding: 14px 16px;
+      background: #f5f9ff;
+      border-left: 4px solid #0d47a1;
+      border-radius: 12px;
+      font-weight: 600;
+      line-height: 1.5;
+    }
+    section {
+      padding: 76px 0;
+    }
+    .section-title {
+      text-align: center;
+      margin-bottom: 18px;
+      font-size: 40px;
+    }
+    .section-subtitle {
+      text-align: center;
+      max-width: 760px;
+      margin: 0 auto 40px;
+      color: rgba(255,255,255,0.9);
+      line-height: 1.7;
+      font-size: 18px;
+    }
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .card {
+      background: #ffffff;
+      color: #1f2937;
+      border-radius: 20px;
+      padding: 28px;
+      box-shadow: 0 14px 36px rgba(0,0,0,0.16);
+      transition: 0.25s ease;
+    }
+    .card:hover {
+      transform: translateY(-6px);
+    }
+    .card h3 {
+      margin-top: 0;
+      margin-bottom: 14px;
+      color: #0d47a1;
+      font-size: 24px;
+    }
+    .card p, .card li {
+      line-height: 1.7;
+    }
+    .card ul {
+      padding-left: 18px;
+      margin: 0;
+    }
+    .dark-band {
+      background: rgba(0,0,0,0.12);
+    }
+    .process {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+    .step {
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.14);
+      border-radius: 18px;
+      padding: 24px;
+    }
+    .step-number {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: #ffffff;
+      color: #0d47a1;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      margin-bottom: 14px;
+    }
+    .packages {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .package {
+      background: #ffffff;
+      color: #1f2937;
+      border-radius: 22px;
+      padding: 30px;
+      box-shadow: 0 14px 36px rgba(0,0,0,0.16);
+      position: relative;
+    }
+    .package.featured {
+      border: 3px solid #0d47a1;
+      transform: scale(1.06);
+      background: linear-gradient(180deg,#ffffff,#f3f7ff);
+      box-shadow: 0 20px 45px rgba(0,0,0,0.22);
+    }
+    .badge {
+      position: absolute;
+      top: -14px;
+      right: 20px;
+      background: #ffffff;
+      color: #0d47a1;
+      padding: 8px 14px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 800;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.12);
+    }
+    .package h3 {
+      margin: 0 0 10px;
+      color: #0d47a1;
+      font-size: 28px;
+    }
+    .package p {
+      margin-top: 0;
+      line-height: 1.7;
+    }
+    .package ul {
+      padding-left: 18px;
+      line-height: 1.8;
+    }
+    .cta-box {
+      background: #ffffff;
+      color: #1f2937;
+      border-radius: 24px;
+      padding: 40px;
+      text-align: center;
+      box-shadow: 0 18px 42px rgba(0,0,0,0.18);
+    }
+    .cta-box h2 {
+      margin-top: 0;
+      color: #0d47a1;
+      font-size: 40px;
+    }
+    .cta-box p {
+      max-width: 720px;
+      margin: 0 auto 24px;
+      line-height: 1.7;
+    }
+    footer {
+      padding: 26px 0 40px;
+      text-align: center;
+      color: rgba(255,255,255,0.9);
+      border-top: 1px solid rgba(255,255,255,0.14);
+    }
+    @media (max-width: 960px) {
+      .hero-grid, .grid-3, .packages, .process {
+        grid-template-columns: 1fr;
+      }
+      h1 { font-size: 42px; }
+      .section-title, .cta-box h2 { font-size: 32px; }
+      .nav { flex-direction: column; align-items: flex-start; }
+      header .btn { width: 100%; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <div class="logo">IstraAds</div>
+      <nav>
+        <a href="#usluge">Usluge</a>
+        <a href="#proces">Proces</a>
+        <a href="#paketi">Paketi</a>
+        <a href="#kontakt">Kontakt</a>
+      </nav>
+      <a class="btn btn-primary" href="#kontakt">Zatraži ponudu</a>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <div class="eyebrow">AI Web + Marketing za lokalne biznise</div>
+        <h1>Web stranice i marketing koji donose više upita i više klijenata.</h1>
+        <p>
+          Pomažemo restoranima, apartmanima, salonima i lokalnim uslužnim biznisima da izgledaju profesionalno online, privuku više ljudi i rastu uz jasan sustav weba, oglasa i sadržaja.
+        </p>
+        <div class="hero-buttons">
+          <a class="btn btn-primary" href="#kontakt">Zatraži ponudu</a>
+          <a class="btn btn-secondary" href="#usluge">Pogledaj usluge</a>
+        </div>
+      </div>
+      <div class="hero-card">
+        <h3>Što klijent dobiva</h3>
+        <div class="mini-list">
+          <div class="mini-item">Profesionalnu web stranicu prilagođenu mobitelu</div>
+          <div class="mini-item">Jasnu online prisutnost i moderan vizualni identitet</div>
+          <div class="mini-item">Objave, oglase i marketing fokusiran na upite</div>
+          <div class="mini-item">Manje stresa i više jasnoće što točno radi online</div>
+        </div>
+      </div>
+      <p style="text-align:center;margin-top:28px;font-size:18px;color:#e5e7eb;">Ne odgovara ti nijedan paket? Možemo složiti potpuno personaliziranu ponudu prema tvojim ciljevima, potrebama i budžetu.</p>
+    </div>
+  </section>
+
+  <section id="usluge">
+    <div class="container">
+      <h2 class="section-title">Što radimo</h2>
+      <p class="section-subtitle">
+        Fokus je na lokalnim biznisima kojima treba konkretan rezultat: bolji dojam, više povjerenja i više poruka od potencijalnih klijenata.
+      </p>
+      <div class="grid-3">
+        <div class="card">
+          <h3>Izrada web stranica</h3>
+          <p>Jednostavne, brze i pregledne stranice koje izgledaju profesionalno i jasno prikazuju usluge, lokaciju i kontakt.</p>
+        </div>
+        <div class="card">
+          <h3>Društvene mreže</h3>
+          <p>Objave, dizajn i sadržaj za Instagram i Facebook kako bi tvoj biznis izgledao aktivno, moderno i vjerodostojno.</p>
+        </div>
+        <div class="card">
+          <h3>Digitalni oglasi</h3>
+          <p>Facebook i Instagram oglasi za lokalni doseg, više upita i bolju vidljivost među ljudima koji su stvarno blizu tebi.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+    <section id="za-koga">
+    <div class="container">
+      <h2 class="section-title">Za koga radimo</h2>
+      <p class="section-subtitle">Radimo s lokalnim biznisima koji žele više upita, više klijenata i profesionalan online nastup.</p>
+      <div class="grid-3">
+        <div class="card">
+          <h3>Firme</h3>
+          <p>Građevinske firme, servisi, agencije i druge tvrtke koje žele više upita putem interneta i oglasa.</p>
+        </div>
+        <div class="card">
+          <h3>Restorani i kafići</h3>
+          <p>Pomažemo restoranima i barovima da izgledaju profesionalno online i privuku više gostiju.</p>
+        </div>
+        <div class="card">
+          <h3>Apartmani i turizam</h3>
+          <p>Web stranice i oglasi za apartmane, vile i turističke objekte koji žele više rezervacija.</p>
+        </div>
+        <div class="card">
+          <h3>Saloni i uslužni biznisi</h3>
+          <p>Frizerski, kozmetički i drugi uslužni biznisi koji žele više termina i novih klijenata.</p>
+        </div>
+        <div class="card">
+          <h3>Lokalne trgovine</h3>
+          <p>Male trgovine i lokalni brendovi koji žele povećati vidljivost i prodaju.</p>
+        </div>
+        <div class="card">
+          <h3>Startupi i novi biznisi</h3>
+          <p>Novi biznisi kojima treba profesionalan početak i jasan online identitet.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+    <section id="zasto-istraads">
+    <div class="container">
+      <h2 class="section-title">Zašto IstraAds</h2>
+      <p class="section-subtitle">Fokus je na jednostavnom marketingu koji lokalnim biznisima donosi stvarne upite i klijente.</p>
+      <div class="grid-3">
+        <div class="card">
+          <h3>Lokalni fokus</h3>
+          <p>Razumijemo lokalno tržište u Istri i kako privući ljude koji su stvarno blizu vašeg biznisa.</p>
+        </div>
+        <div class="card">
+          <h3>Specijalizacija za Meta oglase</h3>
+          <p>Facebook i Instagram oglasi su naš glavni alat za privlačenje novih klijenata i upita.</p>
+        </div>
+        <div class="card">
+          <h3>Jednostavna suradnja</h3>
+          <p>Bez kompliciranih procesa. Jasna komunikacija i konkretni rezultati.</p>
+        </div>
+        <div class="card">
+          <h3>Profesionalan online nastup</h3>
+          <p>Web stranica, vizuali i sadržaj koji ostavljaju dobar prvi dojam.</p>
+        </div>
+        <div class="card">
+          <h3>Više upita</h3>
+          <p>Cilj nije samo lijep marketing nego više poruka, poziva i rezervacija.</p>
+        </div>
+        <div class="card">
+          <h3>Marketing koji ima smisla</h3>
+          <p>Strategija koja je prilagođena malim i srednjim lokalnim biznisima.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="rezultati">
+    <div class="container">
+      <h2 class="section-title">Primjeri rezultata</h2>
+      <p class="section-subtitle">Primjeri test kampanja i rezultata Meta oglasa. Cilj je generirati upite i poruke od potencijalnih klijenata.</p>
+      <div class="grid-3">
+        <div class="card">
+          <h3>Meta Ads test kampanja</h3>
+          <img src="images/case1.png" style="width:100%;border-radius:12px;margin-bottom:14px;">
+          <p><strong>Budžet:</strong> 5€<br>
+          <strong>Reach:</strong> 1,439 ljudi<br>
+          <strong>Pregledi:</strong> 2,050<br>
+          <strong>Poruke:</strong> 2<br>
+          <strong>Cijena poruke:</strong> 2.47€</p>
+        </div>
+        <div class="card">
+          <h3>Meta Ads kampanja</h3>
+          <img src="images/case2.png" style="width:100%;border-radius:12px;margin-bottom:14px;">
+          <p><strong>Budžet:</strong> 20€<br>
+          <strong>Reach:</strong> 9,871 ljudi<br>
+          <strong>Pregledi:</strong> 15,619<br>
+          <strong>Poruke:</strong> 2<br>
+          <strong>Cijena poruke:</strong> 9.99€</p>
+        </div>
+        <div class="card">
+          <h3>Što ovo znači za klijente</h3>
+          <p>Čak i s malim budžetima Meta oglasi mogu dosegnuti tisuće ljudi u lokalnom području. Cilj je optimizirati oglase kako bi se generiralo što više upita, rezervacija i novih klijenata.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="proces" class="dark-band">
+    <div class="container">
+      <h2 class="section-title">Kako suradnja izgleda</h2>
+      <p class="section-subtitle">Jednostavan proces bez komplikacija, tako da točno znaš što dobivaš i kada.</p>
+      <div class="process">
+        <div class="step">
+          <div class="step-number">1</div>
+          <h3>Upit i razgovor</h3>
+          <p>Prolazimo što ti treba, kakav ti je biznis i koji ti je cilj.</p>
+        </div>
+        <div class="step">
+          <div class="step-number">2</div>
+          <h3>Ponuda i plan</h3>
+          <p>Dobivaš jasan prijedlog usluga, rokova i smjera dizajna.</p>
+        </div>
+        <div class="step">
+          <div class="step-number">3</div>
+          <h3>Izrada i objava</h3>
+          <p>Radimo web, vizuale i marketing elemente koji su dogovoreni.</p>
+        </div>
+        <div class="step">
+          <div class="step-number">4</div>
+          <h3>Daljnja podrška</h3>
+          <p>Po potrebi nastavljamo s održavanjem, objavama i oglasima.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="paketi">
+    <div class="container">
+      <h2 class="section-title">Paketi usluga</h2>
+      <p class="section-subtitle">Primjeri paketa koje kasnije možemo prilagoditi tvojoj stvarnoj ponudi i cijenama. Također nudimo potpuno personalizirane ponude ovisno o željama i budžetu klijenta.</p>
+      <div class="packages">
+        <div class="package">
+          <h3>Basic</h3>
+          <p style="font-size:22px;font-weight:700;color:#0d47a1;margin:6px 0 12px;">od 250€ / mj</p>
+          <p>Za biznise kojima treba profesionalna osnova online + osnovni oglasi.</p>
+          <ul>
+            <li>Jednostavna web stranica</li>
+            <li>Osnovni sadržaj i tekstovi</li>
+            <li>Meta oglasi (Facebook / Instagram)</li>
+            <li>Postavljanje osnovne kampanje</li>
+            <li>Osnovna optimizacija za mobitel</li>
+          </ul>
+        </div>
+        <div class="package featured">
+          <div class="badge">Najbolji izbor</div>
+          <h3>Pro</h3>
+          <p style="font-size:22px;font-weight:700;color:#0d47a1;margin:6px 0 12px;">od 350€ / mj</p>
+          <p>Za biznise koji žele web + oglase + društvene mreže.</p>
+          <ul>
+            <li>Web stranica</li>
+            <li>Meta oglasi (Facebook / Instagram)</li>
+            <li>Kreiranje i testiranje kampanja</li>
+            <li>Vizuali i objave za društvene mreže</li>
+            <li>Uređenje profila</li>
+            <li>Redovit sadržaj i bolja prisutnost</li>
+          </ul>
+        </div>
+        <div class="package">
+          <h3>Premium</h3>
+          <p style="font-size:22px;font-weight:700;color:#0d47a1;margin:6px 0 12px;">od 650€ / mj</p>
+          <p>Za biznise koji žele kompletan online sustav i rast.</p>
+          <ul>
+            <li>Web stranica + sadržaj</li>
+            <li>Društvene mreže</li>
+            <li>Meta oglasi</li>
+            <li>Kontinuirana podrška i optimizacija</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="garancija" class="dark-band">
+    <div class="container">
+      <h2 class="section-title">Što možeš očekivati</h2>
+      <p class="section-subtitle">Naš cilj nije samo pokrenuti oglase nego dovesti stvarne upite i potencijalne klijente za tvoj biznis.</p>
+      <div class="grid-3">
+        <div class="card">
+          <h3>Fokus na rezultate</h3>
+          <p>Kampanje su optimizirane za poruke, upite i rezervacije — ne samo za lajkove ili preglede.</p>
+        </div>
+        <div class="card">
+          <h3>Transparentni rezultati</h3>
+          <p>Klijenti mogu vidjeti stvarne metrike kampanja poput dosega, klikova i cijene po upitu.</p>
+        </div>
+        <div class="card">
+          <h3>Prilagodba strategije</h3>
+          <p>Kampanje i sadržaj se stalno optimiziraju kako bi se postigao što bolji rezultat.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="kontakt" class="dark-band">
+    <div class="container">
+      <div class="cta-box">
+        <h2>Želiš više upita i bolji online nastup?</h2>
+        <p>
+          Ako vodiš restoran, apartman, salon ili lokalni biznis u Istri, možemo složiti jednostavan i učinkovit sustav koji izgleda profesionalno i pomaže ti doći do novih klijenata.
+        </p>
+        <a class="btn btn-primary" href="#">Javi se za ponudu</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">© 2026 IstraAds · Web & Marketing za lokalne biznise</div>
+  </footer>
+
+  <!-- Floating Social Buttons -->
+  <style>
+  .floating-social{
+    position:fixed;
+    right:20px;
+    bottom:20px;
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+    z-index:2000;
+  }
+
+  .social-btn{
+    width:56px;
+    height:56px;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:white;
+    font-size:24px;
+    text-decoration:none;
+    box-shadow:0 10px 20px rgba(0,0,0,0.25);
+    transition:0.25s;
+  }
+
+  .social-btn:hover{
+    transform:scale(1.1);
+  }
+
+  .instagram{ background:#E1306C; }
+  .facebook{ background:#1877F2; }
+  </style>
+
+  <div class="floating-social">
+    <a class="social-btn instagram" href="https://instagram.com/yourpage" target="_blank">📷</a>
+    <a class="social-btn facebook" href="https://facebook.com/yourpage" target="_blank">f</a>
+  </div>
+</body>
+</html>
