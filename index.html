@@ -289,6 +289,77 @@
       font:inherit;
     }
 
+
+    .result-image-link{
+      display:block;
+      position:relative;
+      border-radius:18px;
+      overflow:hidden;
+      cursor:zoom-in;
+    }
+    .result-image-link::after{
+      content:"Klikni za uvećanje";
+      position:absolute;
+      right:14px;
+      bottom:14px;
+      background:rgba(15,23,42,.82);
+      color:#fff;
+      padding:8px 12px;
+      border-radius:999px;
+      font-size:13px;
+      font-weight:800;
+      opacity:0;
+      transform:translateY(8px);
+      transition:.22s ease;
+      pointer-events:none;
+    }
+    .result-image-link:hover::after{
+      opacity:1;
+      transform:translateY(0);
+    }
+    .lightbox{
+      position:fixed;
+      inset:0;
+      z-index:9999;
+      display:none;
+      align-items:center;
+      justify-content:center;
+      padding:24px;
+      background:rgba(4,12,32,.84);
+      backdrop-filter:blur(10px);
+    }
+    .lightbox:target{
+      display:flex;
+    }
+    .lightbox img{
+      max-width:min(1100px, 94vw);
+      max-height:88vh;
+      border-radius:18px;
+      box-shadow:0 28px 80px rgba(0,0,0,.45);
+      background:#fff;
+    }
+    .lightbox-close{
+      position:fixed;
+      top:22px;
+      right:24px;
+      width:46px;
+      height:46px;
+      border-radius:50%;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background:#fff;
+      color:#0f172a;
+      font-size:28px;
+      font-weight:800;
+      box-shadow:0 12px 30px rgba(0,0,0,.22);
+    }
+    .lightbox-backdrop{
+      position:absolute;
+      inset:0;
+      z-index:-1;
+    }
+
     footer{padding:26px 0 44px; color:#64718a}
     .footer-line{display:flex; align-items:center; justify-content:space-between; gap:20px; flex-wrap:wrap; border-top:1px solid #dce6f9; padding-top:24px; margin-top:28px}
 
@@ -478,22 +549,22 @@
       <div class="results-grid">
         <article class="result-card">
           <h3>200€ investicija – 95 razgovora</h3>
-          <img src="images/rezultat-200-investicija.png" alt="Rezultati Meta kampanje - 200 eura investicije i 95 razgovora" />
+          <a class="result-image-link" href="#rezultat-200"><img src="images/rezultat-200-investicija.png" alt="Rezultati Meta kampanje - 200 eura investicije i 95 razgovora" /></a>
           <p>Kampanja s većim budžetom, fokusirana na razgovore, doseg i cijenu po razgovoru. Dobar primjer za pokazati potencijal lokalnih oglasa.</p>
         </article>
         <article class="result-card">
           <h3>150€ investicija – 68 razgovora</h3>
-          <img src="images/rezultat-150-investicija.png" alt="Rezultati Meta kampanje - 150 eura investicije i 68 razgovora" />
+          <a class="result-image-link" href="#rezultat-150"><img src="images/rezultat-150-investicija.png" alt="Rezultati Meta kampanje - 150 eura investicije i 68 razgovora" /></a>
           <p>Primjer rezultata s manjim budžetom koji jasno prikazuje broj razgovora, doseg i cijenu po razgovoru.</p>
         </article>
         <article class="result-card">
           <h3>5€ budžet – test kampanja</h3>
-          <img src="images/meta-rezultat-5-eura.png" alt="Meta Ads rezultat - 5 eura budžet, 2 razgovora, 2050 pregleda i 1439 dosega" />
+          <a class="result-image-link" href="#rezultat-5"><img src="images/meta-rezultat-5-eura.png" alt="Meta Ads rezultat - 5 eura budžet, 2 razgovora, 2050 pregleda i 1439 dosega" /></a>
           <p>Test kampanja s malim budžetom: 2 započeta razgovora, 2.050 pregleda, 1.439 dosega i cijena razgovora 2,47€.</p>
         </article>
         <article class="result-card">
           <h3>20€ budžet – lokalni doseg</h3>
-          <img src="images/meta-rezultat-20-eura.png" alt="Meta Ads rezultat - 20 eura budžet, 2 razgovora, 15619 pregleda i 9871 dosega" />
+          <a class="result-image-link" href="#rezultat-20"><img src="images/meta-rezultat-20-eura.png" alt="Meta Ads rezultat - 20 eura budžet, 2 razgovora, 15619 pregleda i 9871 dosega" /></a>
           <p>Kampanja s 20€ budžeta: 15.619 pregleda, 9.871 dosega, 66 klikova na link i 2 započeta razgovora.</p>
         </article>
       </div>
@@ -595,5 +666,30 @@
       </div>
     </footer>
   </main>
+
+  <div class="lightbox" id="rezultat-200">
+    <a class="lightbox-backdrop" href="#rezultati" aria-label="Zatvori sliku"></a>
+    <a class="lightbox-close" href="#rezultati" aria-label="Zatvori">×</a>
+    <img src="images/rezultat-200-investicija.png" alt="Uvećani rezultat kampanje - 200 eura investicije">
+  </div>
+
+  <div class="lightbox" id="rezultat-150">
+    <a class="lightbox-backdrop" href="#rezultati" aria-label="Zatvori sliku"></a>
+    <a class="lightbox-close" href="#rezultati" aria-label="Zatvori">×</a>
+    <img src="images/rezultat-150-investicija.png" alt="Uvećani rezultat kampanje - 150 eura investicije">
+  </div>
+
+  <div class="lightbox" id="rezultat-5">
+    <a class="lightbox-backdrop" href="#rezultati" aria-label="Zatvori sliku"></a>
+    <a class="lightbox-close" href="#rezultati" aria-label="Zatvori">×</a>
+    <img src="images/meta-rezultat-5-eura.png" alt="Uvećani rezultat Meta Ads kampanje - 5 eura">
+  </div>
+
+  <div class="lightbox" id="rezultat-20">
+    <a class="lightbox-backdrop" href="#rezultati" aria-label="Zatvori sliku"></a>
+    <a class="lightbox-close" href="#rezultati" aria-label="Zatvori">×</a>
+    <img src="images/meta-rezultat-20-eura.png" alt="Uvećani rezultat Meta Ads kampanje - 20 eura">
+  </div>
+
 </body>
 </html>
