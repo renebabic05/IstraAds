@@ -360,6 +360,157 @@
       z-index:-1;
     }
 
+
+    .audience-grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:18px;
+    }
+    .audience-card{
+      background:#fff;
+      border:1px solid #e4ebfa;
+      border-radius:24px;
+      padding:24px;
+      box-shadow:0 12px 24px rgba(26,60,140,.05);
+    }
+    .audience-card h3{
+      margin:0 0 8px;
+      color:#183153;
+      font-size:22px;
+    }
+    .audience-card p{
+      margin:0;
+      color:#677690;
+      line-height:1.65;
+    }
+    .timeline-grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:18px;
+    }
+    .timeline-item{
+      background:linear-gradient(180deg,#fff,#fbfdff);
+      border:1px solid #e4ebfa;
+      border-radius:24px;
+      padding:24px;
+      position:relative;
+      overflow:hidden;
+    }
+    .timeline-item::before{
+      content:attr(data-step);
+      position:absolute;
+      right:18px;
+      top:12px;
+      font-size:54px;
+      font-weight:900;
+      color:rgba(37,99,235,.09);
+      letter-spacing:-2px;
+    }
+    .timeline-item h3{
+      margin:0 0 10px;
+      color:#183153;
+      font-size:22px;
+    }
+    .timeline-item p{
+      margin:0;
+      color:#677690;
+      line-height:1.65;
+      position:relative;
+    }
+    .compare-grid{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:22px;
+    }
+    .compare-card{
+      background:#fff;
+      border:1px solid #e4ebfa;
+      border-radius:26px;
+      padding:28px;
+      box-shadow:0 12px 24px rgba(26,60,140,.05);
+    }
+    .compare-card h3{
+      margin:0 0 16px;
+      color:#183153;
+      font-size:28px;
+    }
+    .compare-card ul{
+      margin:0;
+      padding-left:20px;
+      color:#34445f;
+      line-height:2;
+    }
+    .expectation-box{
+      margin-top:22px;
+      background:linear-gradient(135deg,#0f56ef,#5ab5ff);
+      color:#fff;
+      border-radius:26px;
+      padding:28px;
+      line-height:1.75;
+      font-size:18px;
+      box-shadow:0 18px 36px rgba(28,94,255,.16);
+    }
+    .notice-box{
+      margin-top:22px;
+      background:#eef4ff;
+      border:1px solid #d8e5ff;
+      color:#36506f;
+      border-radius:20px;
+      padding:18px 20px;
+      line-height:1.65;
+      font-weight:700;
+    }
+    .faq-grid{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:18px;
+    }
+    .faq-item{
+      background:#fff;
+      border:1px solid #e4ebfa;
+      border-radius:22px;
+      padding:22px;
+    }
+    .faq-item h3{
+      margin:0 0 10px;
+      color:#183153;
+      font-size:20px;
+    }
+    .faq-item p{
+      margin:0;
+      color:#677690;
+      line-height:1.65;
+    }
+    .checkbox-group{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:10px;
+      margin:2px 0;
+    }
+    .checkbox-group label{
+      display:flex;
+      align-items:center;
+      gap:9px;
+      background:rgba(255,255,255,.14);
+      border:1px solid rgba(255,255,255,.25);
+      color:#fff;
+      padding:12px 13px;
+      border-radius:14px;
+      font-weight:700;
+      font-size:14px;
+      line-height:1.35;
+    }
+    .checkbox-group input{
+      width:auto;
+      accent-color:#ffffff;
+    }
+    @media (max-width: 1080px){
+      .audience-grid,.timeline-grid{grid-template-columns:repeat(2,1fr)}
+    }
+    @media (max-width: 760px){
+      .audience-grid,.timeline-grid,.compare-grid,.faq-grid,.checkbox-group{grid-template-columns:1fr}
+    }
+
     footer{padding:26px 0 44px; color:#64718a}
     .footer-line{display:flex; align-items:center; justify-content:space-between; gap:20px; flex-wrap:wrap; border-top:1px solid #dce6f9; padding-top:24px; margin-top:28px}
 
@@ -396,12 +547,14 @@
       <nav>
         <a href="#usluge">Usluge</a>
         <a href="#o-nama">O nama</a>
+        <a href="#za-koga">Za koga</a>
         <a href="#zasto">Zašto IstraAds?</a>
         <a href="#rezultati">Rezultati</a>
+        <a href="#faq">FAQ</a>
         <a href="#paketi">Paketi</a>
         <a href="#kontakt">Kontakt</a>
       </nav>
-      <a class="nav-cta" href="#kontakt">Besplatne konzultacije →</a>
+      <a class="nav-cta" href="#kontakt">Zatraži besplatnu analizu →</a>
     </div>
   </header>
 
@@ -410,10 +563,10 @@
       <div class="hero-grid">
         <div>
           <div class="pill">DIGITALNI MARKETING ZA POSLOVANJA U ISTRI</div>
-          <h1>Vi vodite posao.<span class="accent">Mi dovodimo klijente.</span></h1>
-          <p>Pomažemo istarskim poduzećima da rastu uz pametne online strategije koje donose rezultate – više vidljivosti, više upita i više prodaje.</p>
+          <h1>Vi vodite biznis.<span class="accent">Mi donosimo više upita, poziva i rezervacija.</span></h1>
+          <p>IstraAds pomaže lokalnim biznisima u Istri da kroz web stranice, Meta oglase i digitalni marketing dođu do novih klijenata bez kompliciranja.</p>
           <div class="hero-actions">
-            <a class="btn btn-white" href="#kontakt">Besplatne konzultacije →</a>
+            <a class="btn btn-white" href="#kontakt">Zatraži besplatnu analizu →</a>
             <a class="btn btn-ghost" href="#usluge">Pogledaj usluge →</a>
           </div>
           <div class="hero-mini">
@@ -540,6 +693,42 @@
       </div>
     </section>
 
+
+    <section class="section-card" id="za-koga">
+      <div class="section-head center">
+        <span class="eyebrow">ZA KOGA RADIMO</span>
+        <h2>Lokalni biznisi koji žele više upita i bolji online nastup</h2>
+        <p>Najbolje radimo s biznisima kojima online prisutnost direktno može donijeti nove rezervacije, termine, pozive ili poruke.</p>
+      </div>
+      <div class="audience-grid">
+        <article class="audience-card">
+          <h3>Restorani i kafići</h3>
+          <p>Za lokale koji žele više rezervacija, gostiju i bolju vidljivost u sezoni i izvan sezone.</p>
+        </article>
+        <article class="audience-card">
+          <h3>Apartmani i vile</h3>
+          <p>Za smještajne objekte koji žele profesionalnu prezentaciju i više direktnih upita.</p>
+        </article>
+        <article class="audience-card">
+          <h3>Saloni i beauty biznisi</h3>
+          <p>Za frizerske, kozmetičke i wellness usluge koje žele više termina i redovitih klijenata.</p>
+        </article>
+        <article class="audience-card">
+          <h3>Obrti i uslužne djelatnosti</h3>
+          <p>Za majstore, servise, građevinske firme i lokalne usluge kojima trebaju kvalitetni upiti.</p>
+        </article>
+        <article class="audience-card">
+          <h3>Dentalne ordinacije i klinike</h3>
+          <p>Za ordinacije koje žele ozbiljniji online nastup, više povjerenja i kvalitetnije upite.</p>
+        </article>
+        <article class="audience-card">
+          <h3>Lokalne trgovine</h3>
+          <p>Za trgovine i lokalne brendove koji žele povećati vidljivost, promet i prodaju.</p>
+        </article>
+      </div>
+    </section>
+
+
     <section class="section-card" id="rezultati">
       <div class="section-head center">
         <span class="eyebrow">REZULTATI</span>
@@ -569,6 +758,74 @@
         </article>
       </div>
     </section>
+
+
+    <section class="section-card" id="prvih-30-dana">
+      <div class="section-head center">
+        <span class="eyebrow">PRVIH 30 DANA</span>
+        <h2>Što dobivaš u prvih 30 dana</h2>
+        <p>Odmah na početku postavljamo jasnu osnovu: analiza, strategija, izvedba i prvi rezultati koje možemo pratiti.</p>
+      </div>
+      <div class="timeline-grid">
+        <article class="timeline-item" data-step="01">
+          <h3>Analiza trenutnog nastupa</h3>
+          <p>Pregledavamo web, društvene mreže, Google vidljivost i trenutne probleme u online nastupu.</p>
+        </article>
+        <article class="timeline-item" data-step="02">
+          <h3>Prijedlog strategije</h3>
+          <p>Predlažemo što ima najviše smisla: web, oglasi, sadržaj, lokalni SEO ili kombinacija.</p>
+        </article>
+        <article class="timeline-item" data-step="03">
+          <h3>Izrada ili dorada weba</h3>
+          <p>Postavljamo profesionalnu bazu koja jasno prikazuje ponudu, lokaciju, povjerenje i kontakt.</p>
+        </article>
+        <article class="timeline-item" data-step="04">
+          <h3>Postavljanje kampanja</h3>
+          <p>Kreiramo oglasne kampanje s jasnim ciljem: poruke, pozivi, rezervacije ili upiti.</p>
+        </article>
+        <article class="timeline-item" data-step="05">
+          <h3>Testiranje publika i oglasa</h3>
+          <p>Testiramo različite poruke, vizuale i publike kako bismo vidjeli što najbolje reagira.</p>
+        </article>
+        <article class="timeline-item" data-step="06">
+          <h3>Pregled rezultata i plan dalje</h3>
+          <p>Na temelju podataka radimo sljedeće korake i optimizaciju za bolji rezultat.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section-card" id="prije-poslije">
+      <div class="section-head center">
+        <span class="eyebrow">PRIJE I POSLIJE</span>
+        <h2>Što se mijenja kada postaviš sustav</h2>
+      </div>
+      <div class="compare-grid">
+        <article class="compare-card">
+          <h3>Prije IstraAds</h3>
+          <ul>
+            <li>Nema jasne web stranice ili je zastarjela</li>
+            <li>Slaba vidljivost na Googleu i društvenim mrežama</li>
+            <li>Malo upita, poziva i rezervacija</li>
+            <li>Ne znaš koji marketing stvarno radi</li>
+            <li>Profil izgleda neaktivno ili neprofesionalno</li>
+          </ul>
+        </article>
+        <article class="compare-card">
+          <h3>Nakon IstraAds</h3>
+          <ul>
+            <li>Profesionalan online nastup</li>
+            <li>Jasna ponuda i lakši kontakt za klijente</li>
+            <li>Više poruka, poziva i potencijalnih kupaca</li>
+            <li>Praćenje rezultata i optimizacija kampanja</li>
+            <li>Bolji prvi dojam i više povjerenja</li>
+          </ul>
+        </article>
+      </div>
+      <div class="expectation-box">
+        Ne obećavamo čuda preko noći. Obećavamo jasan plan, transparentan rad i kontinuiranu optimizaciju prema rezultatima.
+      </div>
+    </section>
+
 
     <section class="section-card" id="paketi">
       <div class="section-head center">
@@ -614,13 +871,60 @@
           </ul>
         </article>
       </div>
+
+      <div class="notice-box">
+        Napomena: oglasni budžet nije uključen u cijenu paketa i dogovara se posebno prema ciljevima kampanje, lokaciji i tržištu.
+      </div>
+    </section>
+
+
+    <section class="section-card" id="faq">
+      <div class="section-head center">
+        <span class="eyebrow">FAQ</span>
+        <h2>Najčešća pitanja</h2>
+        <p>Kratki odgovori na stvari koje većina vlasnika biznisa želi znati prije početka suradnje.</p>
+      </div>
+      <div class="faq-grid">
+        <article class="faq-item">
+          <h3>Koliko brzo mogu očekivati rezultate?</h3>
+          <p>Prvi podaci se vide brzo nakon pokretanja kampanja, ali ozbiljnija optimizacija obično se radi kroz nekoliko tjedana testiranja.</p>
+        </article>
+        <article class="faq-item">
+          <h3>Trebam li već imati web stranicu?</h3>
+          <p>Ne. Ako nemaš web, možemo ga izraditi. Ako ga već imaš, možemo ga doraditi i povezati s kampanjama.</p>
+        </article>
+        <article class="faq-item">
+          <h3>Je li budžet za oglase uključen?</h3>
+          <p>Ne. Cijena paketa je za naš rad, a oglasni budžet se dogovara posebno prema ciljevima.</p>
+        </article>
+        <article class="faq-item">
+          <h3>Radite li samo s firmama u Istri?</h3>
+          <p>Primarni fokus je Istra i lokalni biznisi, ali možemo raditi i s biznisima iz drugih dijelova Hrvatske.</p>
+        </article>
+        <article class="faq-item">
+          <h3>Mogu li krenuti s manjim paketom?</h3>
+          <p>Da. Možeš krenuti s manjim paketom pa kasnije pojačati usluge kada vidiš da sustav ima smisla.</p>
+        </article>
+        <article class="faq-item">
+          <h3>Moram li potpisati dugoročni ugovor?</h3>
+          <p>Suradnja se dogovara jasno unaprijed. Cilj je dugoročna suradnja, ali bez nepotrebnog kompliciranja.</p>
+        </article>
+        <article class="faq-item">
+          <h3>Što ako već imam Facebook i Instagram profil?</h3>
+          <p>Odlično. Tada možemo urediti postojeće profile, poboljšati sadržaj i pokrenuti oglase iz postojeće prisutnosti.</p>
+        </article>
+        <article class="faq-item">
+          <h3>Možete li složiti personaliziranu ponudu?</h3>
+          <p>Da. Ako paketi nisu idealni, možemo složiti ponudu prema tvom cilju, budžetu i trenutnom stanju.</p>
+        </article>
+      </div>
     </section>
 
     <section class="contact-card" id="kontakt">
       <div class="contact-grid">
         <div>
           <span class="eyebrow" style="background:rgba(255,255,255,.16); color:#fff">SPREMNI ZA RAST?</span>
-          <h2>Besplatne konzultacije</h2>
+          <h2>Zatraži besplatnu analizu</h2>
           <p>Ispuni kratku formu i pošalji nam osnovne informacije o svom biznisu. Javit ćemo ti se s prijedlogom kako poboljšati web, oglase i online nastup.</p>
 
           <form class="contact-form" action="https://formsubmit.co/renebabo299@gmail.com" method="POST">
@@ -632,6 +936,15 @@
             <input type="text" name="biznis" placeholder="Naziv biznisa" required>
             <input type="email" name="email" placeholder="Email adresa" required>
             <input type="tel" name="telefon" placeholder="Broj mobitela / WhatsApp">
+
+            <div class="checkbox-group">
+              <label><input type="checkbox" name="ciljevi[]" value="Želim više upita"> Želim više upita</label>
+              <label><input type="checkbox" name="ciljevi[]" value="Želim bolju web stranicu"> Želim bolju web stranicu</label>
+              <label><input type="checkbox" name="ciljevi[]" value="Želim oglase"> Želim oglase</label>
+              <label><input type="checkbox" name="ciljevi[]" value="Želim društvene mreže"> Želim društvene mreže</label>
+              <label><input type="checkbox" name="ciljevi[]" value="Želim Google vidljivost"> Želim Google vidljivost</label>
+              <label><input type="checkbox" name="ciljevi[]" value="Nisam siguran, trebam savjet"> Nisam siguran, trebam savjet</label>
+            </div>
             <select name="paket">
               <option value="">Koji paket te zanima?</option>
               <option value="Basic - 350€ / mj">Basic - 350€ / mj</option>
