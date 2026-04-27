@@ -3,670 +3,597 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>IstraAds | Web & Marketing za lokalne biznise</title>
-  <meta name="description" content="IstraAds - web stranice, oglasi, društvene mreže i marketing za lokalne biznise u Istri." />
+  <title>IstraAds | Digitalni marketing za lokalne biznise</title>
+  <meta name="description" content="IstraAds - web stranice, Meta oglasi i digitalni marketing za lokalne biznise u Istri." />
   <style>
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body {
-      margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
-      background: #0d47a1;
-      color: #ffffff;
+    :root{
+      --blue-900:#0b43d9;
+      --blue-800:#145af3;
+      --blue-700:#2d72ff;
+      --blue-600:#4b89ff;
+      --ink:#0f172a;
+      --text:#24324a;
+      --muted:#65748b;
+      --line:#dfe7f6;
+      --card:#ffffff;
+      --bg:#eef4ff;
+      --shadow:0 24px 60px rgba(20,67,160,.12);
+      --radius:26px;
     }
-    .container {
-      width: min(1120px, calc(100% - 32px));
-      margin: 0 auto;
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family: Inter, Arial, Helvetica, sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(92,140,255,.22), transparent 30%),
+        radial-gradient(circle at top right, rgba(118,188,255,.18), transparent 28%),
+        linear-gradient(180deg, #f6f9ff 0%, #edf3ff 100%);
     }
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      background: rgba(13, 71, 161, 0.96);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid rgba(255,255,255,0.14);
+    a{text-decoration:none;color:inherit}
+    img{max-width:100%;display:block}
+    .container{width:min(1180px, calc(100% - 32px)); margin:0 auto}
+
+    header{
+      position:sticky; top:0; z-index:1000;
+      padding:18px 0;
+      backdrop-filter: blur(12px);
+      background:rgba(246,249,255,.72);
+      border-bottom:1px solid rgba(200,215,244,.55);
     }
-    .nav {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 18px 0;
-      gap: 20px;
-      flex-wrap: wrap;
+    .nav{
+      display:flex; align-items:center; justify-content:space-between; gap:22px;
     }
-    .logo {
-      font-size: 32px;
-      font-weight: 800;
-      color: #ffffff;
-      letter-spacing: 0.5px;
+    .logo{font-size:32px; font-weight:900; letter-spacing:-1px; color:#fff; position:relative; z-index:2}
+    .logo span{opacity:.9}
+    .brand-wrap{
+      padding:10px 18px; border-radius:18px;
+      background:linear-gradient(135deg, #1b57ff, #0d42d8);
+      box-shadow:0 15px 30px rgba(30,87,255,.22);
     }
-    nav {
-      display: flex;
-      gap: 24px;
-      flex-wrap: wrap;
-    }
-    nav a {
-      color: #ffffff;
-      text-decoration: none;
-      font-weight: 600;
-      opacity: 0.95;
-    }
-    nav a:hover { opacity: 1; }
-    .hero {
-      padding: 96px 0 72px;
-      background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.02));
-    }
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      gap: 28px;
-      align-items: center;
-    }
-    .eyebrow {
-      display: inline-block;
-      background: rgba(255,255,255,0.14);
-      color: #ffffff;
-      border: 1px solid rgba(255,255,255,0.18);
-      padding: 10px 14px;
-      border-radius: 999px;
-      font-size: 14px;
-      font-weight: 700;
-      margin-bottom: 18px;
-    }
-    h1 {
-      margin: 0 0 16px;
-      font-size: 56px;
-      line-height: 1.05;
-    }
-    .hero p {
-      margin: 0;
-      font-size: 20px;
-      line-height: 1.65;
-      color: rgba(255,255,255,0.92);
-      max-width: 680px;
-    }
-    .hero-buttons {
-      display: flex;
-      gap: 14px;
-      flex-wrap: wrap;
-      margin-top: 28px;
-    }
-    .btn {
-      display: inline-block;
-      text-decoration: none;
-      padding: 14px 24px;
-      border-radius: 999px;
-      font-weight: 700;
-      transition: 0.25s ease;
-      border: 2px solid transparent;
-    }
-    .btn-primary {
-      background: #ffffff;
-      color: #0d47a1;
-    }
-    .btn-primary:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 12px 24px rgba(0,0,0,0.18);
-    }
-    .btn-secondary {
-      background: transparent;
-      color: #ffffff;
-      border-color: rgba(255,255,255,0.35);
-    }
-    .btn-secondary:hover {
-      background: rgba(255,255,255,0.08);
-    }
-    .hero-card {
-      background: #ffffff;
-      color: #0f172a;
-      border-radius: 24px;
-      padding: 28px;
-      box-shadow: 0 20px 50px rgba(0,0,0,0.22);
-    }
-    .hero-card h3 {
-      margin: 0 0 18px;
-      color: #0d47a1;
-      font-size: 24px;
-    }
-    .mini-list {
-      display: grid;
-      gap: 14px;
-    }
-    .mini-item {
-      padding: 14px 16px;
-      background: #f5f9ff;
-      border-left: 4px solid #0d47a1;
-      border-radius: 12px;
-      font-weight: 600;
-      line-height: 1.5;
-    }
-    section {
-      padding: 76px 0;
-    }
-    .section-title {
-      text-align: center;
-      margin-bottom: 18px;
-      font-size: 40px;
-    }
-    .section-subtitle {
-      text-align: center;
-      max-width: 760px;
-      margin: 0 auto 40px;
-      color: rgba(255,255,255,0.9);
-      line-height: 1.7;
-      font-size: 18px;
-    }
-    .grid-3 {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-    }
-    .card {
-      background: #ffffff;
-      color: #1f2937;
-      border-radius: 20px;
-      padding: 28px;
-      box-shadow: 0 14px 36px rgba(0,0,0,0.16);
-      transition: 0.25s ease;
-    }
-    .card:hover {
-      transform: translateY(-6px);
-    }
-    .card h3 {
-      margin-top: 0;
-      margin-bottom: 14px;
-      color: #0d47a1;
-      font-size: 24px;
-    }
-    .card p, .card li {
-      line-height: 1.7;
-    }
-    .card ul {
-      padding-left: 18px;
-      margin: 0;
-    }
-    .dark-band {
-      background: rgba(0,0,0,0.12);
-    }
-    .process {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 20px;
-    }
-    .step {
-      background: rgba(255,255,255,0.1);
-      border: 1px solid rgba(255,255,255,0.14);
-      border-radius: 18px;
-      padding: 24px;
-    }
-    .step-number {
-      width: 44px;
-      height: 44px;
-      border-radius: 50%;
-      background: #ffffff;
-      color: #0d47a1;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 800;
-      margin-bottom: 14px;
-    }
-    .packages {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-    }
-    .package {
-      background: #ffffff;
-      color: #1f2937;
-      border-radius: 22px;
-      padding: 30px;
-      box-shadow: 0 14px 36px rgba(0,0,0,0.16);
-      position: relative;
-    }
-    .package.featured {
-      border: 3px solid #0d47a1;
-      transform: scale(1.06);
-      background: linear-gradient(180deg,#ffffff,#f3f7ff);
-      box-shadow: 0 20px 45px rgba(0,0,0,0.22);
-    }
-    .badge {
-      position: absolute;
-      top: -14px;
-      right: 20px;
-      background: #ffffff;
-      color: #0d47a1;
-      padding: 8px 14px;
-      border-radius: 999px;
-      font-size: 13px;
-      font-weight: 800;
-      box-shadow: 0 10px 20px rgba(0,0,0,0.12);
-    }
-    .package h3 {
-      margin: 0 0 10px;
-      color: #0d47a1;
-      font-size: 28px;
-    }
-    .package p {
-      margin-top: 0;
-      line-height: 1.7;
-    }
-    .package ul {
-      padding-left: 18px;
-      line-height: 1.8;
-    }
-    .cta-box {
-      background: #ffffff;
-      color: #1f2937;
-      border-radius: 24px;
-      padding: 40px;
-      text-align: center;
-      box-shadow: 0 18px 42px rgba(0,0,0,0.18);
-    }
-    .cta-box h2 {
-      margin-top: 0;
-      color: #0d47a1;
-      font-size: 40px;
-    }
-    .cta-box p {
-      max-width: 720px;
-      margin: 0 auto 24px;
-      line-height: 1.7;
+    nav{display:flex; align-items:center; gap:28px; flex-wrap:wrap}
+    nav a{font-weight:700; color:#1d2d49; font-size:15px}
+    nav a:hover{color:var(--blue-800)}
+    .nav-cta{
+      display:inline-flex; align-items:center; gap:10px; white-space:nowrap;
+      background:linear-gradient(135deg, #1c66ff, #0a49e1); color:#fff;
+      padding:15px 22px; border-radius:16px; font-weight:800;
+      box-shadow:0 12px 30px rgba(31,96,255,.24);
     }
 
-    .contact-actions {
-      display: flex;
-      gap: 14px;
-      flex-wrap: wrap;
-      justify-content: center;
-      margin-top: 24px;
+    .hero{
+      position:relative; overflow:hidden;
+      padding:56px 0 42px;
     }
-    .contact-form {
-      max-width: 720px;
-      margin: 28px auto 0;
-      display: grid;
-      gap: 14px;
-      text-align: left;
+    .hero::before{
+      content:""; position:absolute; inset:0;
+      background:
+        radial-gradient(circle at 85% 18%, rgba(255,255,255,.22), transparent 14%),
+        radial-gradient(circle at 14% 76%, rgba(176,240,255,.36), transparent 12%),
+        linear-gradient(135deg, #0d47df 0%, #1d6cff 48%, #5ab5ff 100%);
+      z-index:0;
+    }
+    .hero::after{
+      content:""; position:absolute; inset:0; z-index:0;
+      background:
+        linear-gradient(140deg, transparent 52%, rgba(255,255,255,.18) 58%, transparent 66%),
+        linear-gradient(160deg, transparent 58%, rgba(255,255,255,.08) 64%, transparent 72%);
+      opacity:.85;
+      pointer-events:none;
+    }
+    .hero-inner{position:relative; z-index:1; padding:18px 0 10px}
+    .hero-grid{display:grid; grid-template-columns:1.05fr .95fr; gap:34px; align-items:start}
+    .pill{
+      display:inline-flex; align-items:center; gap:10px;
+      color:#e7f2ff; background:rgba(255,255,255,.12); border:1px solid rgba(255,255,255,.18);
+      padding:10px 16px; border-radius:999px; font-weight:800; font-size:13px; letter-spacing:.2px;
+      margin-bottom:22px;
+    }
+    .pill::before{content:""; width:8px; height:8px; border-radius:50%; background:#6af0ff}
+    .hero h1{margin:0 0 16px; color:#fff; font-size:72px; line-height:1.03; letter-spacing:-2px}
+    .hero h1 .accent{display:block}
+    .hero p{margin:0; color:rgba(255,255,255,.92); font-size:24px; line-height:1.65; max-width:690px}
+    .hero-actions{display:flex; gap:16px; flex-wrap:wrap; margin-top:32px}
+    .btn{
+      display:inline-flex; align-items:center; gap:10px;
+      padding:16px 24px; border-radius:16px; font-weight:800; transition:.25s ease;
+      border:1px solid transparent;
+    }
+    .btn:hover{transform:translateY(-2px)}
+    .btn-white{background:#fff; color:#1144c9; box-shadow:0 18px 36px rgba(0,0,0,.12)}
+    .btn-ghost{background:rgba(255,255,255,.06); border-color:rgba(255,255,255,.28); color:#fff}
+    .hero-mini{display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-top:34px}
+    .mini-feature{display:flex; gap:12px; align-items:flex-start; color:#edf4ff}
+    .mini-icon{
+      width:36px; height:36px; min-width:36px; border-radius:12px;
+      display:flex; align-items:center; justify-content:center;
+      background:rgba(255,255,255,.12); border:1px solid rgba(255,255,255,.16)
+    }
+    .mini-feature strong{display:block; font-size:15px; margin-bottom:4px}
+    .mini-feature span{font-size:13px; line-height:1.5; opacity:.96}
+
+    .dashboard-wrap{padding-top:14px}
+    .dashboard{
+      background:rgba(255,255,255,.92); border:1px solid rgba(255,255,255,.55);
+      border-radius:28px; padding:22px; box-shadow:0 30px 60px rgba(5,35,120,.18);
+    }
+    .dashboard-top{display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:16px}
+    .dashboard-top h3{margin:0; font-size:24px; color:#183153}
+    .select{padding:10px 12px; border-radius:12px; background:#f6f9ff; color:#526179; font-weight:700; font-size:13px}
+    .stats-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:16px}
+    .stat-card{
+      border-radius:20px; padding:18px; background:#fff; border:1px solid #e6edfb;
+      box-shadow:0 8px 20px rgba(30,70,160,.05);
+    }
+    .stat-card.primary{background:linear-gradient(135deg, #1560ff, #2d7bff); color:#fff}
+    .stat-label{font-size:13px; font-weight:700; opacity:.95}
+    .stat-value{margin-top:10px; font-size:38px; font-weight:900; letter-spacing:-1px}
+    .trend{display:inline-flex; align-items:center; gap:6px; margin-top:12px; font-size:12px; font-weight:800; color:#16a34a; background:#ecfdf3; border-radius:999px; padding:7px 10px}
+    .primary .trend{background:rgba(255,255,255,.18); color:#fff}
+    .chart{height:44px; margin-top:10px; border-radius:10px; background:
+        linear-gradient(transparent 60%, rgba(0,0,0,.03) 60%),
+        linear-gradient(90deg, transparent 12%, rgba(0,0,0,.02) 12%);
+      position:relative; overflow:hidden}
+    .chart::after{
+      content:""; position:absolute; left:4%; right:4%; top:45%; height:2px;
+      background:linear-gradient(90deg, transparent 0%, currentColor 12%, currentColor 30%, transparent 31%, transparent 37%, currentColor 47%, currentColor 62%, transparent 63%, transparent 72%, currentColor 83%, currentColor 100%);
+      opacity:.75;
+      transform:skewY(-9deg);
+    }
+    .primary .chart{color:#d9ebff}
+    .stat-card:not(.primary) .chart{color:#2a62e8}
+    .review{
+      margin-top:18px; background:rgba(255,255,255,.95); border-radius:24px; padding:18px;
+      display:flex; align-items:center; gap:16px; box-shadow:0 18px 36px rgba(7,49,152,.12)
+    }
+    .review-thumb{
+      width:72px; height:72px; border-radius:18px; flex:0 0 72px;
+      background:linear-gradient(135deg, #44a2ff, #0c4edb);
+      display:flex; align-items:center; justify-content:center; color:#fff; font-size:14px; font-weight:900
+    }
+    .stars{color:#f5b401; letter-spacing:3px; font-size:18px}
+    .review p{margin:8px 0 6px; font-size:14px; line-height:1.6; color:#4c5b75}
+    .review strong{font-size:14px; color:#183153}
+
+    .section-card{
+      margin-top:36px; background:rgba(255,255,255,.94); border:1px solid #e1e9fb;
+      border-radius:34px; box-shadow:var(--shadow); padding:34px;
+    }
+    .eyebrow{display:inline-block; padding:8px 14px; background:#eef4ff; color:#2a62e8; border-radius:999px; font-weight:800; font-size:12px; letter-spacing:.3px}
+    .section-head{display:flex; align-items:end; justify-content:space-between; gap:20px; margin-bottom:22px}
+    .section-head.center{justify-content:center; text-align:center; display:block}
+    .section-head h2{margin:14px 0 0; font-size:48px; line-height:1.08; letter-spacing:-1.3px; color:#172b4d}
+    .section-head p{margin:14px 0 0; max-width:720px; color:var(--muted); font-size:18px; line-height:1.7}
+
+    .services-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:22px}
+    .service-card{
+      background:linear-gradient(180deg, #ffffff, #fbfdff);
+      border:1px solid #e3ebfb; border-radius:24px; padding:28px; min-height:255px;
+      box-shadow:0 10px 20px rgba(35,74,160,.04);
+    }
+    .service-icon{
+      width:62px; height:62px; border-radius:18px; background:#eef4ff; color:#2c66eb;
+      display:flex; align-items:center; justify-content:center; font-size:26px; margin-bottom:18px; font-weight:900
+    }
+    .service-card h3{margin:0 0 12px; font-size:24px; color:#183153}
+    .service-card p{margin:0; color:#69778f; line-height:1.7; font-size:16px}
+    .learn{display:inline-flex; align-items:center; gap:8px; color:#2c66eb; font-weight:800; margin-top:18px}
+
+    .about-grid{display:grid; grid-template-columns: .85fr 1.15fr; gap:28px; align-items:center}
+    .about-copy h2{margin:14px 0 12px; font-size:56px; line-height:1.05; color:#183153; letter-spacing:-1.6px}
+    .squiggle{width:72px; height:8px; border-radius:99px; background:linear-gradient(90deg, #1b65ff, #8bbdff); margin:14px 0 18px}
+    .about-copy p{margin:0 0 14px; font-size:18px; line-height:1.8; color:#66768f}
+    .about-visual{
+      position:relative; min-height:430px; border-radius:28px; overflow:hidden;
+      background:linear-gradient(135deg, rgba(122,193,255,.45), rgba(24,104,241,.9));
+      padding:18px; box-shadow:var(--shadow)
+    }
+    .istra-scene{
+      position:absolute; left:22px; right:150px; top:24px; bottom:24px; border-radius:26px;
+      background:
+        radial-gradient(circle at 35% 22%, rgba(255,255,255,.35), transparent 18%),
+        linear-gradient(180deg, #92d3ff 0%, #bce4ff 26%, #74b7ff 27%, #5fa4ff 42%, #3d88f2 42%, #3a7eea 58%, #2f72dd 100%);
+      overflow:hidden;
+    }
+    .istra-scene::before{
+      content:""; position:absolute; left:0; right:0; bottom:0; height:48%;
+      background:
+        linear-gradient(180deg, transparent 0%, transparent 35%, rgba(255,255,255,.18) 36%, rgba(255,255,255,.22) 44%, transparent 45%),
+        linear-gradient(90deg, #f4dbc6 0 8%, #e8c4a5 8% 12%, #dab38c 12% 18%, #edceb0 18% 26%, #f1dfd1 26% 34%, #d6ac85 34% 42%, #f4e6d8 42% 50%, #d7b18e 50% 58%, #efd9c7 58% 66%, #d3a57e 66% 74%, #f2e7dc 74% 82%, #d2a37b 82% 90%, #f6e9da 90% 100%);
+      clip-path:polygon(0 80%, 8% 73%, 14% 62%, 20% 58%, 24% 46%, 30% 42%, 36% 26%, 42% 28%, 48% 18%, 53% 10%, 59% 0, 64% 24%, 70% 32%, 78% 42%, 86% 55%, 92% 61%, 100% 70%, 100% 100%, 0 100%);
+      box-shadow: inset 0 -20px 30px rgba(0,0,0,.08);
+    }
+    .istra-scene::after{
+      content:""; position:absolute; width:38px; height:190px; right:19%; bottom:35%;
+      background:linear-gradient(180deg, #e9c58d, #cc9d5f);
+      border-radius:14px 14px 0 0;
+      box-shadow:0 0 0 8px rgba(255,255,255,.18);
+    }
+    .visual-card{
+      position:absolute; right:16px; width:220px; background:rgba(255,255,255,.96);
+      border:1px solid #e7eefc; border-radius:24px; padding:18px; box-shadow:0 18px 36px rgba(16,53,143,.12)
+    }
+    .visual-card h4{margin:0 0 6px; font-size:18px; color:#173052}
+    .visual-card p{margin:0; color:#677691; font-size:14px; line-height:1.55}
+    .visual-card.top{top:40px}
+    .visual-card.mid{top:155px}
+    .visual-card.bottom{top:270px}
+
+    .results-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:22px}
+    .result-card{background:#fff; border:1px solid #e4ebfa; border-radius:24px; padding:20px; box-shadow:0 12px 24px rgba(26,60,140,.06)}
+    .result-card h3{margin:0 0 14px; font-size:24px; color:#183153}
+    .result-card img{border-radius:18px; border:1px solid #edf2fd}
+    .result-card p{margin:14px 0 0; color:#677690; line-height:1.7; font-size:16px}
+
+    .packages-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:22px}
+    .package{position:relative; background:#fff; border:1px solid #e5edfb; border-radius:26px; padding:28px; box-shadow:0 12px 26px rgba(26,60,140,.06)}
+    .package.featured{border:2px solid #2c66eb; transform:translateY(-6px); box-shadow:0 24px 46px rgba(40,100,235,.15)}
+    .package .tag{position:absolute; top:-13px; right:20px; background:linear-gradient(135deg, #2b6eff, #0b4fe3); color:#fff; padding:8px 14px; border-radius:999px; font-size:12px; font-weight:800}
+    .package h3{margin:0 0 8px; color:#183153; font-size:28px}
+    .price{font-size:36px; color:#1b57ff; font-weight:900; letter-spacing:-1px; margin-bottom:10px}
+    .package p{margin:0 0 14px; color:#677690; line-height:1.7}
+    .package ul{margin:0; padding-left:20px; color:#34445f; line-height:1.95}
+
+    .contact-card{
+      background:linear-gradient(135deg, #195fff, #6dbfff); color:#fff;
+      border-radius:32px; padding:34px; box-shadow:0 26px 50px rgba(31,95,255,.2)
+    }
+    .contact-grid{display:grid; grid-template-columns:1.1fr .9fr; gap:28px; align-items:center}
+    .contact-card h2{margin:10px 0 14px; font-size:48px; line-height:1.08; letter-spacing:-1px}
+    .contact-card p{margin:0 0 18px; font-size:18px; line-height:1.75; color:rgba(255,255,255,.95)}
+    .contact-actions{display:flex; gap:14px; flex-wrap:wrap; margin-top:18px}
+    .contact-card .btn-ghost{background:rgba(255,255,255,.12)}
+    .contact-box{
+      background:rgba(255,255,255,.14); border:1px solid rgba(255,255,255,.2); border-radius:26px; padding:24px;
+    }
+    .contact-box strong{display:block; font-size:22px; margin-bottom:10px}
+    .contact-box a{display:block; color:#fff; opacity:.98; margin:8px 0; font-weight:700}
+
+
+    .contact-form{
+      display:grid;
+      gap:14px;
+      margin-top:18px;
     }
     .contact-form input,
-    .contact-form textarea {
-      width: 100%;
-      padding: 14px 16px;
-      border-radius: 14px;
-      border: 1px solid #d1d5db;
-      font: inherit;
-      color: #111827;
-      background: #ffffff;
+    .contact-form textarea,
+    .contact-form select{
+      width:100%;
+      border:1px solid rgba(255,255,255,.35);
+      background:rgba(255,255,255,.96);
+      color:#173052;
+      border-radius:16px;
+      padding:15px 16px;
+      font:inherit;
+      outline:none;
     }
-    .contact-form textarea {
-      min-height: 130px;
-      resize: vertical;
+    .contact-form textarea{
+      min-height:130px;
+      resize:vertical;
     }
-    .contact-form button {
-      cursor: pointer;
-      border: none;
-      justify-self: center;
+    .contact-form input::placeholder,
+    .contact-form textarea::placeholder{
+      color:#7a889d;
+    }
+    .form-note{
+      margin-top:10px;
+      font-size:14px;
+      line-height:1.5;
+      color:rgba(255,255,255,.86);
+    }
+    .form-submit{
+      cursor:pointer;
+      border:none;
+      justify-content:center;
+      font:inherit;
     }
 
-    footer {
-      padding: 26px 0 40px;
-      text-align: center;
-      color: rgba(255,255,255,0.9);
-      border-top: 1px solid rgba(255,255,255,0.14);
-    }
+    footer{padding:26px 0 44px; color:#64718a}
+    .footer-line{display:flex; align-items:center; justify-content:space-between; gap:20px; flex-wrap:wrap; border-top:1px solid #dce6f9; padding-top:24px; margin-top:28px}
 
-    .results-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 24px;
-      align-items: stretch;
+    @media (max-width: 1080px){
+      .hero-grid, .about-grid, .contact-grid{grid-template-columns:1fr}
+      .services-grid, .packages-grid{grid-template-columns:repeat(2,1fr)}
+      .hero h1{font-size:58px}
+      .about-copy h2, .contact-card h2{font-size:46px}
+      .hero-mini{grid-template-columns:1fr}
+      .visual-card{position:relative; right:auto; top:auto; width:auto; margin-top:12px}
+      .about-visual{padding-bottom:20px}
+      .istra-scene{position:relative; left:auto; right:auto; top:auto; bottom:auto; min-height:320px; margin-bottom:16px}
     }
-    .result-card {
-      padding: 22px;
-    }
-    .result-card img {
-      width: 100%;
-      border-radius: 16px;
-      margin-bottom: 16px;
-      box-shadow: 0 12px 30px rgba(0,0,0,0.14);
-      display: block;
-    }
-    .result-summary {
-      grid-column: 1 / -1;
-    }
-    @media (max-width: 960px) {
-      .hero-grid, .grid-3, .packages, .process, .results-grid {
-        grid-template-columns: 1fr;
-      }
-      h1 { font-size: 42px; }
-      .section-title, .cta-box h2 { font-size: 32px; }
-      .nav { flex-direction: column; align-items: flex-start; }
-      header .btn { width: 100%; text-align: center; }
-      .result-summary { grid-column: auto; }
+    @media (max-width: 760px){
+      .nav{flex-direction:column; align-items:flex-start}
+      nav{gap:16px}
+      .services-grid, .results-grid, .packages-grid{grid-template-columns:1fr}
+      .hero{padding-top:28px}
+      .hero h1{font-size:42px}
+      .hero p{font-size:18px}
+      .section-card{padding:24px}
+      .section-head h2, .about-copy h2, .contact-card h2{font-size:34px}
+      .service-card h3, .result-card h3{font-size:22px}
+      .dashboard{padding:16px}
+      .stats-grid{grid-template-columns:1fr}
+      .footer-line{flex-direction:column; align-items:flex-start}
     }
   </style>
 </head>
 <body>
   <header>
     <div class="container nav">
-      <div class="logo">IstraAds</div>
+      <a href="#top" class="brand-wrap"><div class="logo"><span>Istra</span>Ads</div></a>
       <nav>
         <a href="#usluge">Usluge</a>
-        <a href="#za-koga">Za koga</a>
+        <a href="#o-nama">O nama</a>
+        <a href="#zasto">Zašto IstraAds?</a>
         <a href="#rezultati">Rezultati</a>
-        <a href="#proces">Proces</a>
         <a href="#paketi">Paketi</a>
         <a href="#kontakt">Kontakt</a>
       </nav>
-      <a class="btn btn-primary" href="#kontakt">Zatraži ponudu</a>
+      <a class="nav-cta" href="#kontakt">Besplatne konzultacije →</a>
     </div>
   </header>
 
-  <section class="hero">
-    <div class="container hero-grid">
-      <div>
-        <div class="eyebrow">AI Web + Marketing za lokalne biznise</div>
-        <h1>Web stranice i marketing koji donose više upita i više klijenata.</h1>
-        <p>
-          Pomažemo restoranima, apartmanima, salonima i lokalnim uslužnim biznisima da izgledaju profesionalno online, privuku više ljudi i rastu uz jasan sustav weba, oglasa i sadržaja.
-        </p>
-        <div class="hero-buttons">
-          <a class="btn btn-primary" href="#kontakt">Zatraži besplatnu analizu</a>
-          <a class="btn btn-secondary" href="#usluge">Pogledaj usluge</a>
+  <section class="hero" id="top">
+    <div class="container hero-inner">
+      <div class="hero-grid">
+        <div>
+          <div class="pill">DIGITALNI MARKETING ZA POSLOVANJA U ISTRI</div>
+          <h1>Vi vodite posao.<span class="accent">Mi dovodimo klijente.</span></h1>
+          <p>Pomažemo istarskim poduzećima da rastu uz pametne online strategije koje donose rezultate – više vidljivosti, više upita i više prodaje.</p>
+          <div class="hero-actions">
+            <a class="btn btn-white" href="#kontakt">Besplatne konzultacije →</a>
+            <a class="btn btn-ghost" href="#usluge">Pogledaj usluge →</a>
+          </div>
+          <div class="hero-mini">
+            <div class="mini-feature">
+              <div class="mini-icon">⌖</div>
+              <div><strong>Lokalni stručnjaci</strong><span>Iz Istre, za Istru i lokalne biznise.</span></div>
+            </div>
+            <div class="mini-feature">
+              <div class="mini-icon">▣</div>
+              <div><strong>Transparentno izvještavanje</strong><span>Jasni rezultati, metrike i pregled rada.</span></div>
+            </div>
+            <div class="mini-feature">
+              <div class="mini-icon">↗</div>
+              <div><strong>Strategije koje donose rezultate</strong><span>Fokus na upite, pozive i stvarne klijente.</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="dashboard-wrap">
+          <div class="dashboard">
+            <div class="dashboard-top">
+              <h3>Pregled kampanja</h3>
+              <div class="select">Zadnjih 30 dana ▾</div>
+            </div>
+            <div class="stats-grid">
+              <div class="stat-card primary">
+                <div class="stat-label">Ukupni upiti</div>
+                <div class="stat-value">347</div>
+                <div class="trend">+28%</div>
+                <div class="chart"></div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-label">Trošak po upitu</div>
+                <div class="stat-value" style="color:#173052">2,18 €</div>
+                <div class="trend">-18%</div>
+                <div class="chart"></div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-label">Prikazi oglasa</div>
+                <div class="stat-value" style="color:#173052">98.4K</div>
+                <div class="trend">+37%</div>
+                <div class="chart"></div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-label">Stopa konverzije</div>
+                <div class="stat-value" style="color:#173052">7,32%</div>
+                <div class="trend">+22%</div>
+                <div class="chart"></div>
+              </div>
+            </div>
+          </div>
+          <div class="review">
+            <div class="review-thumb">ISTRA</div>
+            <div>
+              <div class="stars">★★★★★</div>
+              <p>Odlična suradnja, vidljivi rezultati i konstantan rast našeg poslovanja.</p>
+              <strong>– Marina, Turistička agencija</strong>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="hero-card">
-        <h3>Što klijent dobiva</h3>
-        <div class="mini-list">
-          <div class="mini-item">Profesionalnu web stranicu prilagođenu mobitelu</div>
-          <div class="mini-item">Jasnu online prisutnost i moderan vizualni identitet</div>
-          <div class="mini-item">Objave, oglase i marketing fokusiran na upite</div>
-          <div class="mini-item">Manje stresa i više jasnoće što točno radi online</div>
+
+      <section class="section-card" id="usluge">
+        <div class="section-head center">
+          <span class="eyebrow">USLUGE</span>
+          <h2>Kompletna digitalna rješenja za vaš rast</h2>
         </div>
-      </div>
-      <p style="text-align:center;margin-top:28px;font-size:18px;color:#e5e7eb;">Ne odgovara ti nijedan paket? Možemo složiti potpuno personaliziranu ponudu prema tvojim ciljevima, potrebama i budžetu.</p>
+        <div class="services-grid">
+          <article class="service-card">
+            <div class="service-icon">📣</div>
+            <h3>Google oglasi</h3>
+            <p>Dosegnite prave klijente u pravom trenutku uz Google Search, Display i YouTube oglase.</p>
+            <span class="learn">Saznaj više →</span>
+          </article>
+          <article class="service-card">
+            <div class="service-icon">👍</div>
+            <h3>Facebook & Instagram oglasi</h3>
+            <p>Kreiramo oglase koji privlače pažnju i pretvaraju pratitelje u stvarne klijente.</p>
+            <span class="learn">Saznaj više →</span>
+          </article>
+          <article class="service-card">
+            <div class="service-icon">🔎</div>
+            <h3>SEO optimizacija</h3>
+            <p>Poboljšavamo vašu vidljivost na Googleu i dovodimo besplatan, dugoročan promet.</p>
+            <span class="learn">Saznaj više →</span>
+          </article>
+          <article class="service-card">
+            <div class="service-icon">📊</div>
+            <h3>Web dizajn & Landing stranice</h3>
+            <p>Moderne, brze i prodajne stranice koje ostavljaju dojam i donose rezultate.</p>
+            <span class="learn">Saznaj više →</span>
+          </article>
+        </div>
+      </section>
     </div>
   </section>
 
-  <section id="usluge">
-    <div class="container">
-      <h2 class="section-title">Što radimo</h2>
-      <p class="section-subtitle">
-        Fokus je na lokalnim biznisima kojima treba konkretan rezultat: bolji dojam, više povjerenja i više poruka od potencijalnih klijenata.
-      </p>
-      <div class="grid-3">
-        <div class="card">
-          <h3>Izrada web stranica</h3>
-          <p>Jednostavne, brze i pregledne stranice koje izgledaju profesionalno i jasno prikazuju usluge, lokaciju i kontakt.</p>
+  <main class="container">
+    <section class="section-card" id="o-nama">
+      <div class="about-grid">
+        <div class="about-copy">
+          <span class="eyebrow">LOKALNO. AUTENTIČNO. UČINKOVITO.</span>
+          <h2>Mi smo iz Istre.<br>Radimo za Istru.</h2>
+          <div class="squiggle"></div>
+          <p>Poznajemo lokalno tržište, razumijemo vaše klijente i gradimo strategije koje donose stvarne rezultate za vaše poslovanje.</p>
+          <p>Nismo samo agencija – vaš smo digitalni partner za web, oglase, sadržaj i rast.</p>
+          <a class="btn btn-white" href="#kontakt">Saznaj više o nama →</a>
         </div>
-        <div class="card">
-          <h3>Društvene mreže</h3>
-          <p>Objave, dizajn i sadržaj za Instagram i Facebook kako bi tvoj biznis izgledao aktivno, moderno i vjerodostojno.</p>
-        </div>
-        <div class="card">
-          <h3>Digitalni oglasi</h3>
-          <p>Facebook i Instagram oglasi za lokalni doseg, više upita i bolju vidljivost među ljudima koji su stvarno blizu tebi.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-    <section id="za-koga">
-    <div class="container">
-      <h2 class="section-title">Za koga radimo</h2>
-      <p class="section-subtitle">Radimo s lokalnim biznisima koji žele više upita, više klijenata i profesionalan online nastup.</p>
-      <div class="grid-3">
-        <div class="card">
-          <h3>Firme</h3>
-          <p>Građevinske firme, servisi, agencije i druge tvrtke koje žele više upita putem interneta i oglasa.</p>
-        </div>
-        <div class="card">
-          <h3>Restorani i kafići</h3>
-          <p>Pomažemo restoranima i barovima da izgledaju profesionalno online i privuku više gostiju.</p>
-        </div>
-        <div class="card">
-          <h3>Apartmani i turizam</h3>
-          <p>Web stranice i oglasi za apartmane, vile i turističke objekte koji žele više rezervacija.</p>
-        </div>
-        <div class="card">
-          <h3>Saloni i uslužni biznisi</h3>
-          <p>Frizerski, kozmetički i drugi uslužni biznisi koji žele više termina i novih klijenata.</p>
-        </div>
-        <div class="card">
-          <h3>Lokalne trgovine</h3>
-          <p>Male trgovine i lokalni brendovi koji žele povećati vidljivost i prodaju.</p>
-        </div>
-        <div class="card">
-          <h3>Startupi i novi biznisi</h3>
-          <p>Novi biznisi kojima treba profesionalan početak i jasan online identitet.</p>
+        <div class="about-visual" id="zasto">
+          <div class="istra-scene"></div>
+          <div class="visual-card top">
+            <h4>Lokalno tržište</h4>
+            <p>Poznajemo Istru i znamo što vašim klijentima znači.</p>
+          </div>
+          <div class="visual-card mid">
+            <h4>Brza komunikacija</h4>
+            <p>Dostupni, fleksibilni i uvijek korak ispred.</p>
+          </div>
+          <div class="visual-card bottom">
+            <h4>Mjerljivi rezultati</h4>
+            <p>Jasni ciljevi, konkretni podaci i vidljiv rast.</p>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-    <section id="zasto-istraads">
-    <div class="container">
-      <h2 class="section-title">Zašto IstraAds</h2>
-      <p class="section-subtitle">Fokus je na jednostavnom marketingu koji lokalnim biznisima donosi stvarne upite i klijente.</p>
-      <div class="grid-3">
-        <div class="card">
-          <h3>Lokalni fokus</h3>
-          <p>Razumijemo lokalno tržište u Istri i kako privući ljude koji su stvarno blizu vašeg biznisa.</p>
-        </div>
-        <div class="card">
-          <h3>Specijalizacija za Meta oglase</h3>
-          <p>Facebook i Instagram oglasi su naš glavni alat za privlačenje novih klijenata i upita.</p>
-        </div>
-        <div class="card">
-          <h3>Jednostavna suradnja</h3>
-          <p>Bez kompliciranih procesa. Jasna komunikacija i konkretni rezultati.</p>
-        </div>
-        <div class="card">
-          <h3>Profesionalan online nastup</h3>
-          <p>Web stranica, vizuali i sadržaj koji ostavljaju dobar prvi dojam.</p>
-        </div>
-        <div class="card">
-          <h3>Više upita</h3>
-          <p>Cilj nije samo lijep marketing nego više poruka, poziva i rezervacija.</p>
-        </div>
-        <div class="card">
-          <h3>Marketing koji ima smisla</h3>
-          <p>Strategija koja je prilagođena malim i srednjim lokalnim biznisima.</p>
-        </div>
+    <section class="section-card" id="rezultati">
+      <div class="section-head center">
+        <span class="eyebrow">REZULTATI</span>
+        <h2>Primjeri kampanja i rezultata</h2>
+        <p>Primjeri Meta kampanja i rezultata koje možeš pokazivati klijentima kao dokaz rada, dosega i potencijala oglasa.</p>
       </div>
-    </div>
-  </section>
-
-  <section id="rezultati">
-    <div class="container">
-      <h2 class="section-title">Primjeri rezultata</h2>
-      <p class="section-subtitle">Primjeri kampanja i rezultata Meta oglasa. Cilj je generirati konkretne razgovore, upite i nove prilike za prodaju.</p>
       <div class="results-grid">
-        <div class="card result-card">
-          <h3>Meta Ads kampanja — 200€ investicija</h3>
-          <img src="images/rezultat-200-investicija.png" alt="Meta Ads rezultat: 200€ investicija, 95 razgovora, doseg 87.654 i cijena po razgovoru 2.11€">
-          <p><strong>Budžet:</strong> 200€<br>
-          <strong>Razgovora:</strong> 95<br>
-          <strong>Doseg:</strong> 87,654 ljudi<br>
-          <strong>Pregledi:</strong> 123,456<br>
-          <strong>Cijena po razgovoru:</strong> 2.11€</p>
-        </div>
-        <div class="card result-card">
-          <h3>Meta Ads kampanja — 150€ investicija</h3>
-          <img src="images/rezultat-150-investicija.png" alt="Meta Ads rezultat: 150€ investicija, 68 razgovora, doseg 64.287 i cijena po razgovoru 2.21€">
-          <p><strong>Budžet:</strong> 150€<br>
-          <strong>Razgovora:</strong> 68<br>
-          <strong>Doseg:</strong> 64,287 ljudi<br>
-          <strong>Pregledi:</strong> 92,736<br>
-          <strong>Cijena po razgovoru:</strong> 2.21€</p>
-        </div>
-        <div class="card result-summary">
-          <h3>Što ovo znači za klijente</h3>
-          <p>Dobro postavljeni Meta oglasi mogu s relativno malim budžetom otvoriti velik broj razgovora s potencijalnim kupcima. Fokus kampanja nije samo na preglede i lajkove, nego na konkretne poruke, upite, rezervacije i prodajne prilike.</p>
-        </div>
+        <article class="result-card">
+          <h3>200€ investicija – 95 razgovora</h3>
+          <img src="images/rezultat-200-investicija.png" alt="Rezultati Meta kampanje - 200 eura investicije i 95 razgovora" />
+          <p>Kampanja s većim budžetom, fokusirana na razgovore, doseg i cijenu po razgovoru. Dobar primjer za pokazati potencijal lokalnih oglasa.</p>
+        </article>
+        <article class="result-card">
+          <h3>150€ investicija – 68 razgovora</h3>
+          <img src="images/rezultat-150-investicija.png" alt="Rezultati Meta kampanje - 150 eura investicije i 68 razgovora" />
+          <p>Primjer rezultata s manjim budžetom koji jasno prikazuje broj razgovora, doseg i cijenu po razgovoru.</p>
+        </article>
+        <article class="result-card">
+          <h3>5€ budžet – test kampanja</h3>
+          <img src="images/meta-rezultat-5-eura.png" alt="Meta Ads rezultat - 5 eura budžet, 2 razgovora, 2050 pregleda i 1439 dosega" />
+          <p>Test kampanja s malim budžetom: 2 započeta razgovora, 2.050 pregleda, 1.439 dosega i cijena razgovora 2,47€.</p>
+        </article>
+        <article class="result-card">
+          <h3>20€ budžet – lokalni doseg</h3>
+          <img src="images/meta-rezultat-20-eura.png" alt="Meta Ads rezultat - 20 eura budžet, 2 razgovora, 15619 pregleda i 9871 dosega" />
+          <p>Kampanja s 20€ budžeta: 15.619 pregleda, 9.871 dosega, 66 klikova na link i 2 započeta razgovora.</p>
+        </article>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section id="pocetak-suradnje">
-    <div class="container">
-      <h2 class="section-title">Kako izgleda početak suradnje</h2>
-      <p class="section-subtitle">Prvi korak je jednostavan. Pošalji nam poruku, a mi ćemo pregledati tvoj trenutni online nastup i predložiti što se može konkretno poboljšati.</p>
-      <div class="process">
-        <div class="step">
-          <div class="step-number">1</div>
-          <h3>Pošalješ poruku</h3>
-          <p>Javiš nam čime se baviš i što želiš poboljšati.</p>
-        </div>
-        <div class="step">
-          <div class="step-number">2</div>
-          <h3>Radimo kratku analizu</h3>
-          <p>Pregledamo web, društvene mreže i prilike za oglase.</p>
-        </div>
-        <div class="step">
-          <div class="step-number">3</div>
-          <h3>Predlažemo smjer</h3>
-          <p>Dobivaš konkretan prijedlog usluga, ciljeva i paketa.</p>
-        </div>
-        <div class="step">
-          <div class="step-number">4</div>
-          <h3>Krećemo s izvedbom</h3>
-          <p>Nakon dogovora radimo web, sadržaj, profile i oglase.</p>
-        </div>
+    <section class="section-card" id="paketi">
+      <div class="section-head center">
+        <span class="eyebrow">PAKETI</span>
+        <h2>Odaberi paket koji odgovara tvom biznisu</h2>
+        <p>Paketi su postavljeni jasno, pregledno i modernije, u stilu stranice koju si poslao.</p>
       </div>
-    </div>
-  </section>
-
-  <section id="proces" class="dark-band">
-    <div class="container">
-      <h2 class="section-title">Kako suradnja izgleda</h2>
-      <p class="section-subtitle">Jednostavan proces bez komplikacija, tako da točno znaš što dobivaš i kada.</p>
-      <div class="process">
-        <div class="step">
-          <div class="step-number">1</div>
-          <h3>Upit i razgovor</h3>
-          <p>Prolazimo što ti treba, kakav ti je biznis i koji ti je cilj.</p>
-        </div>
-        <div class="step">
-          <div class="step-number">2</div>
-          <h3>Ponuda i plan</h3>
-          <p>Dobivaš jasan prijedlog usluga, rokova i smjera dizajna.</p>
-        </div>
-        <div class="step">
-          <div class="step-number">3</div>
-          <h3>Izrada i objava</h3>
-          <p>Radimo web, vizuale i marketing elemente koji su dogovoreni.</p>
-        </div>
-        <div class="step">
-          <div class="step-number">4</div>
-          <h3>Daljnja podrška</h3>
-          <p>Po potrebi nastavljamo s održavanjem, objavama i oglasima.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="paketi">
-    <div class="container">
-      <h2 class="section-title">Paketi usluga</h2>
-      <p class="section-subtitle">Primjeri paketa koje kasnije možemo prilagoditi tvojoj stvarnoj ponudi i cijenama. Također nudimo potpuno personalizirane ponude ovisno o željama i budžetu klijenta.</p>
-      <div class="packages">
-        <div class="package">
+      <div class="packages-grid">
+        <article class="package">
           <h3>Basic</h3>
-          <p style="font-size:22px;font-weight:700;color:#0d47a1;margin:6px 0 12px;">od 250€ / mj</p>
+          <div class="price">350€<span style="font-size:18px;font-weight:700;color:#6880a6"> / mj</span></div>
           <p>Za biznise kojima treba profesionalna osnova online + osnovni oglasi.</p>
           <ul>
             <li>Jednostavna web stranica</li>
             <li>Osnovni sadržaj i tekstovi</li>
-            <li>Meta oglasi (Facebook / Instagram)</li>
-            <li>Postavljanje osnovne kampanje</li>
+            <li>Meta oglasi</li>
             <li>Osnovna optimizacija za mobitel</li>
           </ul>
-        </div>
-        <div class="package featured">
-          <div class="badge">Najbolji izbor</div>
+        </article>
+        <article class="package featured">
+          <div class="tag">Najbolji izbor</div>
           <h3>Pro</h3>
-          <p style="font-size:22px;font-weight:700;color:#0d47a1;margin:6px 0 12px;">od 500€ / mj</p>
-          <p>Za biznise koji žele web + oglase + društvene mreže.</p>
+          <div class="price">500€<span style="font-size:18px;font-weight:700;color:#6880a6"> / mj</span></div>
+          <p>Za biznise koji žele web + oglase + društvene mreže i jaču online prisutnost.</p>
           <ul>
             <li>Web stranica</li>
-            <li>Meta oglasi (Facebook / Instagram)</li>
-            <li>Kreiranje i testiranje kampanja</li>
+            <li>Meta oglasi i testiranje kampanja</li>
             <li>Vizuali i objave za društvene mreže</li>
             <li>Uređenje profila</li>
-            <li>Redovit sadržaj i bolja prisutnost</li>
+            <li>Mjesečno praćenje rezultata</li>
           </ul>
-        </div>
-        <div class="package">
+        </article>
+        <article class="package">
           <h3>Premium</h3>
-          <p style="font-size:22px;font-weight:700;color:#0d47a1;margin:6px 0 12px;">od 900€ / mj</p>
-          <p>Za biznise koji žele kompletan online sustav, ozbiljniji rast i kontinuirano vođenje marketinga.</p>
+          <div class="price">900€<span style="font-size:18px;font-weight:700;color:#6880a6"> / mj</span></div>
+          <p>Za biznise koji žele kompletan online sustav, ozbiljan rast i kontinuiranu optimizaciju.</p>
           <ul>
-            <li>Web stranica + profesionalan sadržaj</li>
-            <li>Društvene mreže i redovit sadržaj</li>
-            <li>Meta oglasi (Facebook / Instagram)</li>
-            <li>Napredna strategija oglašavanja</li>
-            <li>Više kampanja i testiranje oglasa</li>
-            <li>Mjesečni izvještaj rezultata</li>
-            <li>Optimizacija oglasa i sadržaja</li>
-            <li>Kontinuirana podrška i prioritetna komunikacija</li>
+            <li>Web stranica + sadržaj</li>
+            <li>Društvene mreže</li>
+            <li>Meta oglasi + više kampanja</li>
+            <li>Napredna strategija i optimizacija</li>
+            <li>Mjesečni izvještaji i prioritetna podrška</li>
           </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="contact-card" id="kontakt">
+      <div class="contact-grid">
+        <div>
+          <span class="eyebrow" style="background:rgba(255,255,255,.16); color:#fff">SPREMNI ZA RAST?</span>
+          <h2>Besplatne konzultacije</h2>
+          <p>Ispuni kratku formu i pošalji nam osnovne informacije o svom biznisu. Javit ćemo ti se s prijedlogom kako poboljšati web, oglase i online nastup.</p>
+
+          <form class="contact-form" action="https://formsubmit.co/renebabo299@gmail.com" method="POST">
+            <input type="hidden" name="_subject" value="Novi upit s IstraAds stranice">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_template" value="table">
+
+            <input type="text" name="ime" placeholder="Ime i prezime" required>
+            <input type="text" name="biznis" placeholder="Naziv biznisa" required>
+            <input type="email" name="email" placeholder="Email adresa" required>
+            <input type="tel" name="telefon" placeholder="Broj mobitela / WhatsApp">
+            <select name="paket">
+              <option value="">Koji paket te zanima?</option>
+              <option value="Basic - 350€ / mj">Basic - 350€ / mj</option>
+              <option value="Pro - 500€ / mj">Pro - 500€ / mj</option>
+              <option value="Premium - 900€ / mj">Premium - 900€ / mj</option>
+              <option value="Personalizirana ponuda">Personalizirana ponuda</option>
+            </select>
+            <textarea name="poruka" placeholder="Napiši ukratko što ti treba: web stranica, oglasi, društvene mreže, više upita..." required></textarea>
+            <button class="btn btn-white form-submit" type="submit">Pošalji upit →</button>
+          </form>
+          <div class="form-note">Nakon prvog slanja FormSubmit može tražiti potvrdu email adrese. To je normalno i radi se samo jednom.</div>
+        </div>
+
+        <div class="contact-box">
+          <strong>Kontakt i društvene mreže</strong>
+          <a href="https://www.instagram.com/istraads/" target="_blank" rel="noopener">Instagram: instagram.com/istraads</a>
+          <a href="https://www.facebook.com/istraads" target="_blank" rel="noopener">Facebook: facebook.com/istraads</a>
+          <a href="#paketi">Pogledaj pakete i odaberi što ti najviše odgovara.</a>
+
+          <div class="contact-actions">
+            <a class="btn btn-ghost" href="https://www.instagram.com/istraads/" target="_blank" rel="noopener">Instagram</a>
+            <a class="btn btn-ghost" href="https://www.facebook.com/istraads" target="_blank" rel="noopener">Facebook</a>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section id="garancija" class="dark-band">
-    <div class="container">
-      <h2 class="section-title">Što možeš očekivati</h2>
-      <p class="section-subtitle">Naš cilj nije samo pokrenuti oglase nego dovesti stvarne upite i potencijalne klijente za tvoj biznis.</p>
-      <div class="grid-3">
-        <div class="card">
-          <h3>Fokus na rezultate</h3>
-          <p>Kampanje su optimizirane za poruke, upite i rezervacije — ne samo za lajkove ili preglede.</p>
-        </div>
-        <div class="card">
-          <h3>Transparentni rezultati</h3>
-          <p>Klijenti mogu vidjeti stvarne metrike kampanja poput dosega, klikova i cijene po upitu.</p>
-        </div>
-        <div class="card">
-          <h3>Prilagodba strategije</h3>
-          <p>Kampanje i sadržaj se stalno optimiziraju kako bi se postigao što bolji rezultat.</p>
-        </div>
+    <footer>
+      <div class="footer-line">
+        <div><strong>IstraAds</strong> · Digitalni marketing za lokalne biznise u Istri</div>
+        <div>© 2026 IstraAds · Web, oglasi, SEO i društvene mreže</div>
       </div>
-    </div>
-  </section>
-
-  <section id="kontakt" class="dark-band">
-    <div class="container">
-      <div class="cta-box">
-        <h2>Pošalji poruku i zatraži besplatnu analizu</h2>
-        <p>
-          Besplatno provjeravamo tvoj web, društvene mreže i oglase te ti šaljemo prijedlog što se može poboljšati kako bi tvoj biznis dobio više upita, rezervacija ili klijenata.
-        </p>
-
-        <form class="contact-form" action="https://formsubmit.co/renebabo299@gmail.com" method="POST">
-          <input type="hidden" name="_subject" value="Novi upit sa IstraAds stranice">
-          <input type="hidden" name="_captcha" value="false">
-          <input type="text" name="ime" placeholder="Ime i prezime" required>
-          <input type="text" name="biznis" placeholder="Naziv biznisa" required>
-          <input type="email" name="email" placeholder="Email adresa" required>
-          <textarea name="poruka" placeholder="Napiši ukratko što ti treba: web stranica, oglasi, društvene mreže ili kompletan marketing." required></textarea>
-          <button class="btn btn-primary" type="submit">Pošalji upit</button>
-        </form>
-
-        <div class="contact-actions">
-          <a class="btn btn-secondary" href="mailto:renebabo299@gmail.com">Pošalji email</a>
-          <a class="btn btn-secondary" href="https://www.instagram.com/istraads/" target="_blank">Instagram</a>
-          <a class="btn btn-secondary" href="https://www.facebook.com/istraads" target="_blank">Facebook</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <footer>
-    <div class="container">© 2026 IstraAds · Web & Marketing za lokalne biznise</div>
-  </footer>
-
+    </footer>
+  </main>
 </body>
 </html>
