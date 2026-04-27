@@ -273,20 +273,76 @@
       margin: 0 auto 24px;
       line-height: 1.7;
     }
+
+    .contact-actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 24px;
+    }
+    .contact-form {
+      max-width: 720px;
+      margin: 28px auto 0;
+      display: grid;
+      gap: 14px;
+      text-align: left;
+    }
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 14px 16px;
+      border-radius: 14px;
+      border: 1px solid #d1d5db;
+      font: inherit;
+      color: #111827;
+      background: #ffffff;
+    }
+    .contact-form textarea {
+      min-height: 130px;
+      resize: vertical;
+    }
+    .contact-form button {
+      cursor: pointer;
+      border: none;
+      justify-self: center;
+    }
+
     footer {
       padding: 26px 0 40px;
       text-align: center;
       color: rgba(255,255,255,0.9);
       border-top: 1px solid rgba(255,255,255,0.14);
     }
+
+    .results-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+      align-items: stretch;
+    }
+    .result-card {
+      padding: 22px;
+    }
+    .result-card img {
+      width: 100%;
+      border-radius: 16px;
+      margin-bottom: 16px;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.14);
+      display: block;
+    }
+    .result-summary {
+      grid-column: 1 / -1;
+    }
     @media (max-width: 960px) {
-      .hero-grid, .grid-3, .packages, .process {
+      .hero-grid, .grid-3, .packages, .process, .results-grid {
         grid-template-columns: 1fr;
       }
       h1 { font-size: 42px; }
       .section-title, .cta-box h2 { font-size: 32px; }
       .nav { flex-direction: column; align-items: flex-start; }
       header .btn { width: 100%; text-align: center; }
+      .result-summary { grid-column: auto; }
     }
   </style>
 </head>
@@ -296,6 +352,8 @@
       <div class="logo">IstraAds</div>
       <nav>
         <a href="#usluge">Usluge</a>
+        <a href="#za-koga">Za koga</a>
+        <a href="#rezultati">Rezultati</a>
         <a href="#proces">Proces</a>
         <a href="#paketi">Paketi</a>
         <a href="#kontakt">Kontakt</a>
@@ -313,7 +371,7 @@
           Pomažemo restoranima, apartmanima, salonima i lokalnim uslužnim biznisima da izgledaju profesionalno online, privuku više ljudi i rastu uz jasan sustav weba, oglasa i sadržaja.
         </p>
         <div class="hero-buttons">
-          <a class="btn btn-primary" href="#kontakt">Zatraži ponudu</a>
+          <a class="btn btn-primary" href="#kontakt">Zatraži besplatnu analizu</a>
           <a class="btn btn-secondary" href="#usluge">Pogledaj usluge</a>
         </div>
       </div>
@@ -422,29 +480,58 @@
   <section id="rezultati">
     <div class="container">
       <h2 class="section-title">Primjeri rezultata</h2>
-      <p class="section-subtitle">Primjeri test kampanja i rezultata Meta oglasa. Cilj je generirati upite i poruke od potencijalnih klijenata.</p>
-      <div class="grid-3">
-        <div class="card">
-          <h3>Meta Ads test kampanja</h3>
-          <img src="images/case1.png" onclick="openLightbox(this.src)" style="cursor:pointer;width:100%;max-width:720px;display:block;margin:0 auto 18px;border-radius:12px;">
-          <p><strong>Budžet:</strong> 5€<br>
-          <strong>Reach:</strong> 1,439 ljudi<br>
-          <strong>Pregledi:</strong> 2,050<br>
-          <strong>Poruke:</strong> 2<br>
-          <strong>Cijena poruke:</strong> 2.47€</p>
+      <p class="section-subtitle">Primjeri kampanja i rezultata Meta oglasa. Cilj je generirati konkretne razgovore, upite i nove prilike za prodaju.</p>
+      <div class="results-grid">
+        <div class="card result-card">
+          <h3>Meta Ads kampanja — 200€ investicija</h3>
+          <img src="images/rezultat-200-investicija.png" alt="Meta Ads rezultat: 200€ investicija, 95 razgovora, doseg 87.654 i cijena po razgovoru 2.11€">
+          <p><strong>Budžet:</strong> 200€<br>
+          <strong>Razgovora:</strong> 95<br>
+          <strong>Doseg:</strong> 87,654 ljudi<br>
+          <strong>Pregledi:</strong> 123,456<br>
+          <strong>Cijena po razgovoru:</strong> 2.11€</p>
         </div>
-        <div class="card">
-          <h3>Meta Ads kampanja</h3>
-          <img src="images/case2.png" onclick="openLightbox(this.src)" style="cursor:pointer;width:100%;max-width:720px;display:block;margin:0 auto 18px;border-radius:12px;">
-          <p><strong>Budžet:</strong> 20€<br>
-          <strong>Reach:</strong> 9,871 ljudi<br>
-          <strong>Pregledi:</strong> 15,619<br>
-          <strong>Poruke:</strong> 2<br>
-          <strong>Cijena poruke:</strong> 9.99€</p>
+        <div class="card result-card">
+          <h3>Meta Ads kampanja — 150€ investicija</h3>
+          <img src="images/rezultat-150-investicija.png" alt="Meta Ads rezultat: 150€ investicija, 68 razgovora, doseg 64.287 i cijena po razgovoru 2.21€">
+          <p><strong>Budžet:</strong> 150€<br>
+          <strong>Razgovora:</strong> 68<br>
+          <strong>Doseg:</strong> 64,287 ljudi<br>
+          <strong>Pregledi:</strong> 92,736<br>
+          <strong>Cijena po razgovoru:</strong> 2.21€</p>
         </div>
-        <div class="card">
+        <div class="card result-summary">
           <h3>Što ovo znači za klijente</h3>
-          <p>Čak i s malim budžetima Meta oglasi mogu dosegnuti tisuće ljudi u lokalnom području. Cilj je optimizirati oglase kako bi se generiralo što više upita, rezervacija i novih klijenata.</p>
+          <p>Dobro postavljeni Meta oglasi mogu s relativno malim budžetom otvoriti velik broj razgovora s potencijalnim kupcima. Fokus kampanja nije samo na preglede i lajkove, nego na konkretne poruke, upite, rezervacije i prodajne prilike.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="pocetak-suradnje">
+    <div class="container">
+      <h2 class="section-title">Kako izgleda početak suradnje</h2>
+      <p class="section-subtitle">Prvi korak je jednostavan. Pošalji nam poruku, a mi ćemo pregledati tvoj trenutni online nastup i predložiti što se može konkretno poboljšati.</p>
+      <div class="process">
+        <div class="step">
+          <div class="step-number">1</div>
+          <h3>Pošalješ poruku</h3>
+          <p>Javiš nam čime se baviš i što želiš poboljšati.</p>
+        </div>
+        <div class="step">
+          <div class="step-number">2</div>
+          <h3>Radimo kratku analizu</h3>
+          <p>Pregledamo web, društvene mreže i prilike za oglase.</p>
+        </div>
+        <div class="step">
+          <div class="step-number">3</div>
+          <h3>Predlažemo smjer</h3>
+          <p>Dobivaš konkretan prijedlog usluga, ciljeva i paketa.</p>
+        </div>
+        <div class="step">
+          <div class="step-number">4</div>
+          <h3>Krećemo s izvedbom</h3>
+          <p>Nakon dogovora radimo web, sadržaj, profile i oglase.</p>
         </div>
       </div>
     </div>
@@ -499,7 +586,7 @@
         <div class="package featured">
           <div class="badge">Najbolji izbor</div>
           <h3>Pro</h3>
-          <p style="font-size:22px;font-weight:700;color:#0d47a1;margin:6px 0 12px;">od 350€ / mj</p>
+          <p style="font-size:22px;font-weight:700;color:#0d47a1;margin:6px 0 12px;">od 500€ / mj</p>
           <p>Za biznise koji žele web + oglase + društvene mreže.</p>
           <ul>
             <li>Web stranica</li>
@@ -512,13 +599,17 @@
         </div>
         <div class="package">
           <h3>Premium</h3>
-          <p style="font-size:22px;font-weight:700;color:#0d47a1;margin:6px 0 12px;">od 650€ / mj</p>
-          <p>Za biznise koji žele kompletan online sustav i rast.</p>
+          <p style="font-size:22px;font-weight:700;color:#0d47a1;margin:6px 0 12px;">od 900€ / mj</p>
+          <p>Za biznise koji žele kompletan online sustav, ozbiljniji rast i kontinuirano vođenje marketinga.</p>
           <ul>
-            <li>Web stranica + sadržaj</li>
-            <li>Društvene mreže</li>
-            <li>Meta oglasi</li>
-            <li>Kontinuirana podrška i optimizacija</li>
+            <li>Web stranica + profesionalan sadržaj</li>
+            <li>Društvene mreže i redovit sadržaj</li>
+            <li>Meta oglasi (Facebook / Instagram)</li>
+            <li>Napredna strategija oglašavanja</li>
+            <li>Više kampanja i testiranje oglasa</li>
+            <li>Mjesečni izvještaj rezultata</li>
+            <li>Optimizacija oglasa i sadržaja</li>
+            <li>Kontinuirana podrška i prioritetna komunikacija</li>
           </ul>
         </div>
       </div>
@@ -549,11 +640,26 @@
   <section id="kontakt" class="dark-band">
     <div class="container">
       <div class="cta-box">
-        <h2>Želiš više upita i bolji online nastup?</h2>
+        <h2>Pošalji poruku i zatraži besplatnu analizu</h2>
         <p>
-          Ako vodiš restoran, apartman, salon ili lokalni biznis u Istri, možemo složiti jednostavan i učinkovit sustav koji izgleda profesionalno i pomaže ti doći do novih klijenata.
+          Besplatno provjeravamo tvoj web, društvene mreže i oglase te ti šaljemo prijedlog što se može poboljšati kako bi tvoj biznis dobio više upita, rezervacija ili klijenata.
         </p>
-        <a class="btn btn-primary" href="#">Javi se za ponudu</a>
+
+        <form class="contact-form" action="https://formsubmit.co/renebabo299@gmail.com" method="POST">
+          <input type="hidden" name="_subject" value="Novi upit sa IstraAds stranice">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="text" name="ime" placeholder="Ime i prezime" required>
+          <input type="text" name="biznis" placeholder="Naziv biznisa" required>
+          <input type="email" name="email" placeholder="Email adresa" required>
+          <textarea name="poruka" placeholder="Napiši ukratko što ti treba: web stranica, oglasi, društvene mreže ili kompletan marketing." required></textarea>
+          <button class="btn btn-primary" type="submit">Pošalji upit</button>
+        </form>
+
+        <div class="contact-actions">
+          <a class="btn btn-secondary" href="mailto:renebabo299@gmail.com">Pošalji email</a>
+          <a class="btn btn-secondary" href="https://www.instagram.com/istraads/" target="_blank">Instagram</a>
+          <a class="btn btn-secondary" href="https://www.facebook.com/istraads" target="_blank">Facebook</a>
+        </div>
       </div>
     </div>
   </section>
@@ -561,29 +667,6 @@
   <footer>
     <div class="container">© 2026 IstraAds · Web & Marketing za lokalne biznise</div>
   </footer>
-
-  <div style="margin-top:20px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
-  <a class="btn btn-primary" href="https://www.instagram.com/istraads/" target="_blank">Instagram</a>
-  <a class="btn btn-secondary" href="https://www.facebook.com/istraads" target="_blank">Facebook</a>
-  <a class="btn btn-secondary" href="mailto:renebabo299@gmail.com?subject=Upit%20za%20marketing%20usluge">Pošalji Email</a>
-</div>
-  <!-- Lightbox -->
-  <div id="lightbox" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.9);align-items:center;justify-content:center;z-index:3000;">
-    <img id="lightbox-img" style="max-width:90%;max-height:90%;border-radius:10px;">
-  </div>
-
-  <script>
-  function openLightbox(src){
-    const box=document.getElementById('lightbox');
-    const img=document.getElementById('lightbox-img');
-    img.src=src;
-    box.style.display='flex';
-  }
-
-  document.getElementById('lightbox').onclick=function(){
-    this.style.display='none';
-  }
-  </script>
 
 </body>
 </html>
