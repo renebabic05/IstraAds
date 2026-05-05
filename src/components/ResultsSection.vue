@@ -3,7 +3,6 @@
     <div class="section-head center">
       <span class="eyebrow">REZULTATI</span>
       <h2>Primjeri kampanja i rezultata</h2>
-      <p>Primjeri Meta kampanja i rezultata koje možeš pokazivati klijentima kao dokaz rada, dosega i potencijala oglasa.</p>
     </div>
     <div class="results-grid">
       <article class="result-card">
