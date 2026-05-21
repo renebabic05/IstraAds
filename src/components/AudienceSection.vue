@@ -3,7 +3,7 @@
     <div class="section-head center">
       <span class="eyebrow">ZA KOGA RADIMO</span>
       <h2>Lokalni biznisi koji žele više upita i bolji online nastup</h2>
-      <p>Najbolje radimo s biznisima kojima online prisutnost direktno može donijeti nove rezervacije, termine, pozive ili poruke.</p>
+      
     </div>
     <div class="audience-grid">
       <article class="audience-card">

@@ -3,7 +3,7 @@
     <div class="section-head center">
       <span class="eyebrow">PAKETI</span>
       <h2>Odaberi paket koji odgovara tvom biznisu</h2>
-      <p>Paketi su postavljeni jasno, pregledno i modernije, u stilu stranice koju si poslao.</p>
+      
     </div>
     <div class="packages-grid">
       <article class="package">

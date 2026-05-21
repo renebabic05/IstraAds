@@ -3,7 +3,7 @@
     <div class="section-head center">
       <span class="eyebrow">PRVIH 30 DANA</span>
       <h2>Što dobivaš u prvih 30 dana</h2>
-      <p>Odmah na početku postavljamo jasnu osnovu: analiza, strategija, izvedba i prvi rezultati koje možemo pratiti.</p>
+      
     </div>
     <div class="timeline-grid">
       <article class="timeline-item" data-step="01">

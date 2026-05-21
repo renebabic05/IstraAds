@@ -3,7 +3,7 @@
     <div class="section-head center">
       <span class="eyebrow">FAQ</span>
       <h2>Najčešća pitanja</h2>
-      <p>Kratki odgovori na stvari koje većina vlasnika biznisa želi znati prije početka suradnje.</p>
+      
     </div>
     <div class="faq-grid">
       <article class="faq-item">
