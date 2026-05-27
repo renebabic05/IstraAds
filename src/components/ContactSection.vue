@@ -7,9 +7,10 @@
         <p>Ispuni kratku formu i pošalji nam osnovne informacije o svom biznisu. Javit ćemo ti se s prijedlogom kako poboljšati web, oglase i online nastup.</p>
 
         <form class="contact-form" action="https://formsubmit.co/renebabo299@gmail.com" method="POST">
-          <input type="hidden" name="_subject" value="Novi upit s IstraAds stranice">
-          <input type="hidden" name="_captcha" value="false">
-          <input type="hidden" name="_template" value="table">
+  <input type="hidden" name="_subject" value="Novi upit s IstraAds stranice">
+  <input type="hidden" name="_captcha" value="false">
+  <input type="hidden" name="_template" value="table">
+  <input type="hidden" name="_next" value="https://istraads.com/hvala">
 
           <input type="text" name="ime" placeholder="Ime i prezime" required>
           <input type="text" name="biznis" placeholder="Naziv biznisa" required>
