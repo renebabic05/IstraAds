@@ -84,6 +84,8 @@ const buttonLabel = computed(() => {
 })
 
 function handleSubmit(e) {
+  e.preventDefault() 
+  
   if (isBlocked.value) return
 
   const emailInput = e.target.querySelector('[name="email"]')
