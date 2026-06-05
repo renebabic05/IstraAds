@@ -6,7 +6,7 @@
         <h2>Zatraži besplatnu analizu</h2>
         <p>Ispuni kratku formu i pošalji nam osnovne informacije o svom biznisu. Javit ćemo ti se s prijedlogom kako poboljšati web, oglase i online nastup.</p>
 
-        <form class="contact-form" action="https://formsubmit.co/f7dc3c02cc35c0a913a10fe65504c10036803faf1fb54ecd9d182dcc968515ec" method="POST">
+        <form class="contact-form" action="https://formsubmit.co/renebabo299@gmail.com" method="POST">
   <input type="hidden" name="_subject" value="Novi upit s IstraAds stranice">
   <input type="hidden" name="_captcha" value="false">
   <input type="hidden" name="_template" value="table">
