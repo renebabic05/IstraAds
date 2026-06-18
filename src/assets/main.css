@@ -602,6 +602,27 @@ nav a:hover { color: var(--text) }
 .form-submit { cursor: pointer; border: none; justify-content: center; font: inherit }
 .form-note { margin-top: 10px; font-size: 13px; line-height: 1.5; color: rgba(230,220,200,.55) }
 
+.gdpr-consent { width: 100%; }
+.gdpr-consent label {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: flex-start !important;
+  gap: 0.6rem !important;
+  background: none !important;
+  border: none !important;
+  padding: 0 !important;
+  border-radius: 0 !important;
+  font-weight: normal !important;
+  font-size: 0.82rem !important;
+  color: rgba(255, 255, 255, 0.75) !important;
+  line-height: 1.5 !important;
+  cursor: pointer;
+  width: 100%;
+}
+.gdpr-consent label span { flex: 1; min-width: 0; }
+.gdpr-consent input[type="checkbox"] { width: auto !important; margin-top: 3px; flex-shrink: 0; accent-color: #fff; }
+.gdpr-consent a { color: #fff; text-decoration: underline; }
+
 .contact-box {
   background: rgba(91,138,255,.08);
   border: 1px solid rgba(91,138,255,.18);

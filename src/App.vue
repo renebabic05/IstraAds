@@ -18,12 +18,14 @@
     <FaqSection class="reveal" />
     <Divider />
     <ContactSection class="reveal" />
-    <AppFooter />
+    <AppFooter @openPrivatnost="showPrivatnost = true" />
   </main>
+
+  <PrivatnostModal v-if="showPrivatnost" @close="showPrivatnost = false" />
 </template>
 
 <script setup>
-import { onMounted } from 'vue'
+import { ref, onMounted } from 'vue'
 import AppHeader from './components/AppHeader.vue'
 import HeroSection from './components/HeroSection.vue'
 import AboutSection from './components/AboutSection.vue'
@@ -36,6 +38,9 @@ import FaqSection from './components/FaqSection.vue'
 import ContactSection from './components/ContactSection.vue'
 import AppFooter from './components/AppFooter.vue'
 import Divider from './components/Divider.vue'
+import PrivatnostModal from './components/PrivatnostModal.vue'
+
+const showPrivatnost = ref(false)
 
 onMounted(() => {
   const observer = new IntersectionObserver((entries) => {

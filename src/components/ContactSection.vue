@@ -37,6 +37,13 @@
 
           <textarea name="poruka" placeholder="Napiši ukratko što ti treba: web stranica, oglasi, društvene mreže, više upita..." required></textarea>
 
+          <div class="gdpr-consent">
+            <label>
+              <input type="checkbox" name="gdpr" required>
+              <span>Slanjem ovog upita prihvaćam <a href="/privatnost" target="_blank">Politiku privatnosti</a> i dajem pristanak za obradu mojih osobnih podataka u svrhu odgovora na upit.</span>
+            </label>
+          </div>
+
           <button
             class="btn btn-white form-submit"
             type="submit"
@@ -147,5 +154,38 @@ button:disabled {
   color: #ffdddd;
   font-size: 0.875rem;
   margin-top: 0.5rem;
+}
+
+.gdpr-consent {
+  font-size: 0.82rem;
+  color: rgba(255, 255, 255, 0.75);
+  line-height: 1.5;
+  width: 100%;
+}
+
+.gdpr-consent label {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  gap: 0.6rem;
+  align-items: flex-start;
+  cursor: pointer;
+  width: 100%;
+}
+
+.gdpr-consent label span {
+  flex: 1;
+  min-width: 0;
+}
+
+.gdpr-consent input[type="checkbox"] {
+  margin-top: 3px;
+  flex-shrink: 0;
+  accent-color: #fff;
+}
+
+.gdpr-consent a {
+  color: #fff;
+  text-decoration: underline;
 }
 </style>
