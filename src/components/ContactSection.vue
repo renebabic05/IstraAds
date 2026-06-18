@@ -91,9 +91,10 @@ const buttonLabel = computed(() => {
 })
 
 function handleSubmit(e) {
-  e.preventDefault() 
-  
-  if (isBlocked.value) return
+  if (isBlocked.value) {
+    e.preventDefault()
+    return
+  }
 
   const emailInput = e.target.querySelector('[name="email"]')
   const emailRegex = /^[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}$/

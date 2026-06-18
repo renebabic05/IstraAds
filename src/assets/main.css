@@ -620,7 +620,7 @@ nav a:hover { color: var(--text) }
   width: 100%;
 }
 .gdpr-consent label span { flex: 1; min-width: 0; }
-.gdpr-consent input[type="checkbox"] { width: auto !important; margin-top: 3px; flex-shrink: 0; accent-color: #fff; }
+.gdpr-consent input[type="checkbox"] { width: auto !important; margin-top: 3px; flex-shrink: 0; accent-color: #5b8aff; width: 16px; height: 16px; }
 .gdpr-consent a { color: #fff; text-decoration: underline; }
 
 .contact-box {
