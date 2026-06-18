@@ -40,6 +40,7 @@
           <div class="gdpr-consent">
             <label>
               <input type="checkbox" name="gdpr" required>
+              <span class="gdpr-box"></span>
               <span>Slanjem ovog upita prihvaćam <a href="/privatnost" target="_blank">Politiku privatnosti</a> i dajem pristanak za obradu mojih osobnih podataka u svrhu odgovora na upit.</span>
             </label>
           </div>
