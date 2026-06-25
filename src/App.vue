@@ -17,7 +17,7 @@
     <Divider />
     <FaqSection class="reveal" id="faq" />
     <Divider />
-    <ContactSection class="reveal" />
+    <ContactSection class="reveal" @openPrivatnost="showPrivatnost = true" />
   </main>
 
   <AppFooter

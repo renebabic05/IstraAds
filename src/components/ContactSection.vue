@@ -1,3 +1,48 @@
+<script setup>
+import { ref, computed } from 'vue'
+
+defineEmits(['openPrivatnost'])
+
+const isBlocked = ref(false)
+const countdown = ref(0)
+const emailError = ref('')
+
+const buttonLabel = computed(() => isBlocked.value ? 'Upit poslan ✓' : 'Pošalji upit')
+
+let countdownInterval = null
+
+function startCooldown() {
+  isBlocked.value = true
+  countdown.value = 60
+  countdownInterval = setInterval(() => {
+    countdown.value--
+    if (countdown.value <= 0) {
+      clearInterval(countdownInterval)
+      isBlocked.value = false
+      countdown.value = 0
+    }
+  }, 1000)
+}
+
+function validateEmail(e) {
+  const val = e.target.value
+  if (val && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val)) {
+    emailError.value = 'Unesite ispravnu email adresu.'
+  } else {
+    emailError.value = ''
+  }
+}
+
+function handleSubmit(e) {
+  if (isBlocked.value) {
+    e.preventDefault()
+    return
+  }
+  // Let the native form submit to formsubmit.co, then start cooldown
+  startCooldown()
+}
+</script>
+
 <template>
   <section class="section-card" id="kontakt">
     <div class="contact-grid">
@@ -6,7 +51,7 @@
         <h2>Zatraži besplatnu analizu</h2>
         <p>Ispuni kratku formu i pošalji nam osnovne informacije o svom biznisu. Javit ćemo ti se s prijedlogom kako poboljšati web, oglase i online nastup.</p>
 
-        <form class="contact-form" action="https://formsubmit.co/renebabo299@gmail.com" method="POST">
+        <form class="contact-form" action="https://formsubmit.co/renebabo299@gmail.com" method="POST" @submit="handleSubmit">
           <input type="hidden" name="_subject" value="Novi upit s IstraAds stranice">
           <input type="hidden" name="_captcha" value="false">
           <input type="hidden" name="_template" value="table">
@@ -14,7 +59,7 @@
 
           <input type="text" name="ime" placeholder="Ime i prezime" required>
           <input type="text" name="biznis" placeholder="Naziv biznisa" required>
-          <input type="email" name="email" placeholder="Email adresa" required>
+          <input type="email" name="email" placeholder="Email adresa" required @blur="validateEmail" @input="validateEmail">
           <p v-if="emailError" class="field-error">{{ emailError }}</p>
           <input type="tel" name="telefon" placeholder="Broj mobitela / WhatsApp">
 
@@ -40,8 +85,7 @@
           <div class="gdpr-consent">
             <label>
               <input type="checkbox" name="gdpr" required>
-              <span class="gdpr-box"></span>
-              <span>Slanjem ovog upita prihvaćam <a href="/privatnost" target="_blank">Politiku privatnosti</a> i dajem pristanak za obradu mojih osobnih podataka u svrhu odgovora na upit.</span>
+              <span>Slanjem ovog upita prihvaćam <a href="#" @click.prevent="$emit('openPrivatnost')">Politiku privatnosti</a> i dajem pristanak za obradu mojih osobnih podataka u svrhu odgovora na upit.</span>
             </label>
           </div>
 
