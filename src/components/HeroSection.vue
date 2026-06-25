@@ -41,19 +41,19 @@
               </div>
               <div class="stat-card">
                 <div class="stat-label">Trošak po upitu</div>
-                <div class="stat-value" style="color:#173052">2,18 €</div>
+                <div class="stat-value">2,18 €</div>
                 <div class="trend">-18%</div>
                 <div class="chart"></div>
               </div>
               <div class="stat-card">
                 <div class="stat-label">Prikazi oglasa</div>
-                <div class="stat-value" style="color:#173052">98.4K</div>
+                <div class="stat-value">98.4K</div>
                 <div class="trend">+37%</div>
                 <div class="chart"></div>
               </div>
               <div class="stat-card">
                 <div class="stat-label">Stopa konverzije</div>
-                <div class="stat-value" style="color:#173052">7,32%</div>
+                <div class="stat-value">7,32%</div>
                 <div class="trend">+22%</div>
                 <div class="chart"></div>
               </div>
@@ -70,7 +70,7 @@
         </div>
       </div>
 
-      <ServicesSection />
+      <ServicesSection id="usluge" />
     </div>
   </section>
 </template>

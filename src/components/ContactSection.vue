@@ -1,5 +1,5 @@
 <template>
-  <section class="contact-card" id="kontakt">
+  <section class="section-card" id="kontakt">
     <div class="contact-grid">
       <div>
         <span class="eyebrow" style="background:rgba(255,255,255,.16); color:#fff">SPREMNI ZA RAST?</span>
@@ -7,10 +7,10 @@
         <p>Ispuni kratku formu i pošalji nam osnovne informacije o svom biznisu. Javit ćemo ti se s prijedlogom kako poboljšati web, oglase i online nastup.</p>
 
         <form class="contact-form" action="https://formsubmit.co/renebabo299@gmail.com" method="POST">
-  <input type="hidden" name="_subject" value="Novi upit s IstraAds stranice">
-  <input type="hidden" name="_captcha" value="false">
-  <input type="hidden" name="_template" value="table">
-  <input type="hidden" name="_next" value="https://istraads.com/hvala">
+          <input type="hidden" name="_subject" value="Novi upit s IstraAds stranice">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_template" value="table">
+          <input type="hidden" name="_next" value="https://istraads.com/">
 
           <input type="text" name="ime" placeholder="Ime i prezime" required>
           <input type="text" name="biznis" placeholder="Naziv biznisa" required>
@@ -25,13 +25,15 @@
             <label><input type="checkbox" name="ciljevi[]" value="Želim Google vidljivost"> Želim Google vidljivost</label>
             <label><input type="checkbox" name="ciljevi[]" value="Nisam siguran, trebam savjet"> Nisam siguran, trebam savjet</label>
           </div>
+
           <select name="paket">
             <option value="">Koji paket te zanima?</option>
-            <option value="Basic - 350€ / mj">Basic - 350€ / mj</option>
-            <option value="Pro - 500€ / mj">Pro - 500€ / mj</option>
-            <option value="Premium - 900€ / mj">Premium - 900€ / mj</option>
+            <option value="Basic">Basic (na upit)</option>
+            <option value="Pro">Pro (na upit)</option>
+            <option value="Premium">Premium (na upit)</option>
             <option value="Personalizirana ponuda">Personalizirana ponuda</option>
           </select>
+
           <textarea name="poruka" placeholder="Napiši ukratko što ti treba: web stranica, oglasi, društvene mreže, više upita..." required></textarea>
           <button class="btn btn-white form-submit" type="submit">Pošalji upit →</button>
         </form>
