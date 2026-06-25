@@ -15,6 +15,7 @@
           <input type="text" name="ime" placeholder="Ime i prezime" required>
           <input type="text" name="biznis" placeholder="Naziv biznisa" required>
           <input type="email" name="email" placeholder="Email adresa" required>
+          <p v-if="emailError" class="field-error">{{ emailError }}</p>
           <input type="tel" name="telefon" placeholder="Broj mobitela / WhatsApp">
 
           <div class="checkbox-group">
@@ -35,8 +36,28 @@
           </select>
 
           <textarea name="poruka" placeholder="Napiši ukratko što ti treba: web stranica, oglasi, društvene mreže, više upita..." required></textarea>
-          <button class="btn btn-white form-submit" type="submit">Pošalji upit →</button>
+
+          <div class="gdpr-consent">
+            <label>
+              <input type="checkbox" name="gdpr" required>
+              <span class="gdpr-box"></span>
+              <span>Slanjem ovog upita prihvaćam <a href="/privatnost" target="_blank">Politiku privatnosti</a> i dajem pristanak za obradu mojih osobnih podataka u svrhu odgovora na upit.</span>
+            </label>
+          </div>
+
+          <button
+            class="btn btn-white form-submit"
+            type="submit"
+            :disabled="isBlocked"
+          >
+            {{ buttonLabel }}
+          </button>
+
+          <p v-if="isBlocked" class="rate-limit-msg">
+            Upit je poslan. Možeš ponovo pokušati za {{ countdown }}s.
+          </p>
         </form>
+
         <div class="form-note">Nakon prvog slanja FormSubmit može tražiti potvrdu email adrese. To je normalno i radi se samo jednom.</div>
       </div>
 
