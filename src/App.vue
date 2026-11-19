@@ -81,7 +81,7 @@ async function submitForm(event) {
         <div class="section-heading">
           <span class="section-kicker">Što radimo</span>
           <h2 id="usluge-naslov">Sve što vašem poslovanju treba za digitalni rast.</h2>
-          <p>Od prve web stranice do oglasa, automatizacija i novih upita. Odaberite jednu uslugu ili kombinaciju koja odgovara vašim ciljevima.</p>
+          <p>Poma?emo tvrtkama u Istri da do?u do klijenata uz izradu web stranica, SEO i digitalno ogla?avanje. Od prve web stranice do oglasa, automatizacija i novih upita. Odaberite jednu uslugu ili kombinaciju koja odgovara vašim ciljevima.</p>
         </div>
         <div class="service-grid">
           <article class="service"><div class="service-number" aria-hidden="true">01</div><h3>Snimanje i fotografiranje dronom</h3><p>Zračne fotografije i videozapisi nekretnina, vila, zemljišta i poslovnih prostora za web stranice, oglase i društvene mreže.</p></article>
