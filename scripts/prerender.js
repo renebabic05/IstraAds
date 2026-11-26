@@ -6,7 +6,7 @@ import { renderToString } from 'vue/server-renderer'
 const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;')
 const json = (o) => JSON.stringify(o).replace(/</g, '\\u003c')
 
-function localPage(page, { SITE, locations, croatia }, assets) {
+function localPage(page, { SITE, locations, croatia }, assets, motion) {
   const url = `${SITE}/${page.slug}`
   const others = [...locations, croatia].filter((l) => l.slug !== page.slug)
   const schema = {
@@ -91,6 +91,7 @@ function localPage(page, { SITE, locations, croatia }, assets) {
     </div>
   </footer>
 </div>
+<script>(${motion})()</script>
 </body>
 </html>
 `
@@ -110,11 +111,12 @@ try {
   const data = await server.ssrLoadModule('/src/data/locations.js')
   const assets = html.match(/<link[^>]+(?:stylesheet|preconnect)[^>]*>/g)
   if (!assets?.some((l) => l.includes('/assets/'))) throw new Error('Built stylesheet not found')
+  const { reveal } = await import('../src/reveal.js')
   const pages = [...data.locations, data.croatia]
   for (const page of pages) {
     const dir = new URL(`../dist/${page.slug}/`, import.meta.url)
     await mkdir(dir, { recursive: true })
-    await writeFile(new URL('index.html', dir), localPage(page, data, assets.join('\n  ')))
+    await writeFile(new URL('index.html', dir), localPage(page, data, assets.join('\n  '), reveal.toString()))
   }
 
   // Sitemap se generira iz istih podataka, pa nove stranice ulaze automatski.

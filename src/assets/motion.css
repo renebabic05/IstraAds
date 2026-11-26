@@ -1,0 +1,28 @@
+/* Ulazne animacije uvodnog dijela. Globalno pravilo prefers-reduced-motion ih isključuje. */
+@keyframes rise { from { opacity:0; transform:translateY(26px); } to { opacity:1; transform:none; } }
+.topbar { animation:rise .6s ease both; }
+.lead > * { animation:rise .8s cubic-bezier(.2,.8,.2,1) both; }
+.lead > :nth-child(2) { animation-delay:.1s; }
+.lead > :nth-child(3) { animation-delay:.2s; }
+.lead > :nth-child(4) { animation-delay:.3s; }
+.lf { animation:rise .9s .35s cubic-bezier(.2,.8,.2,1) both; }
+
+/* Sjaj koji se polako kreće iza uvodnog dijela */
+.hero::before { content:""; position:absolute; z-index:-1; pointer-events:none; width:620px; height:620px; top:-180px; left:-160px; border-radius:50%; background:radial-gradient(circle,rgba(67,160,255,.28),transparent 66%); animation:drift 14s ease-in-out infinite alternate; }
+@keyframes drift { to { transform:translate(60vw,220px) scale(1.25); } }
+
+/* Naslov: preljev boja preko istaknutog teksta */
+#glavni-naslov span, .hero-local h1 span { background:linear-gradient(100deg,#83bbff 20%,#e3f2ff 40%,#6ee7ff 52%,#83bbff 72%); background-size:250% 100%; -webkit-background-clip:text; background-clip:text; color:transparent; animation:shine 6s linear infinite; }
+@keyframes shine { from { background-position:100% 0; } to { background-position:-150% 0; } }
+
+.down svg { animation:nudge 1.8s ease-in-out infinite; }
+@keyframes nudge { 50% { transform:translateY(5px); } }
+
+/* Kontakt forma */
+.lf-option input:checked + .lf-tile .lf-check, .lf-option input:checked + .lf-tile svg { animation:pop .35s ease; }
+@keyframes pop { 50% { transform:scale(1.22); } }
+.has-error .lf-options { animation:shake .4s ease; }
+@keyframes shake { 20%,60% { transform:translateX(-7px); } 40%,80% { transform:translateX(7px); } }
+.lf-success-icon { animation:land .65s cubic-bezier(.2,1.6,.4,1) both; }
+.lf-success h3, .lf-success p, .lf-again { animation:rise .6s .2s ease both; }
+@keyframes land { from { opacity:0; transform:scale(.3); } }
